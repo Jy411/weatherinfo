@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Weather</title>
+  </head>
+
+  <body>
+
+    <header>
+      <h1 class="text-center m-5">Weather</h1>
+    </header>
+
+    <main>
+        <div class="container p-5">
+            <form>
+              <input id="cname" placeholder="Enter city name">
+              <button class="btn" id="search">Search</button>
+            </form>
+            
+            <div class="row">
+              
+              <div class="col-12 p-5 border">
+                <h1 class="text-center" id="weekly">Brunei Darussalam</h1>
+                <p class="text-left" id="temp">20&deg;C<span id="low">/40&deg;F</span></p>
+                <small class="text-left mb-5">Mostly Cloudy</small>  
+              </div>
+              
+            </div>
+            
+            <div class="row">
+              
+              <div class="col-6 p-5 border">
+                <!--<h2 class="text-center" id="temp">20&deg;C/40&deg;F</h2>-->
+                <p>Status: 1400 sunny</p>
+                <p>Status: +1 hr sunny</p>
+              </div>
+              
+              <div class="col-6 p-5 border">
+                <h2 class="text-center" id="pollIndex">Pollution Index</h2>
+                <p>Status: 50 Good green smile</p>
+                <!-- color coded-->
+                <small> 0-50: Good </small><br>
+                <small> 51-100: Moderate </small><br>
+                <small> 101-150: Unhealthy for sensitive groups </small><br>
+                <small> 151-200: Unhealthy </small><br>
+                <small> 201-300: Very Unhealthy </small><br>
+                <small> 300+: Hazardous </small>
+              </div>
+              
+            </div>
+             
+            <div class="row">
+              
+              <div class="col-12 p-5 border">
+                <h2 class="text-center" id="dailyForecast">forcast within 24hr</h2>
+                <p>Status: weather</p>
+                <p>Status: temp</p>
+              </div>
+              
+            </div>
+            
+            <div class="row">
+              
+              <div class="col-6 p-5 border">
+                <h2 class="text-center" id="rain">Rain Precipitation</h2>
+                <p>Status: weather</p>
+                <p>Status: temp</p>
+              </div>
+              
+              <div class="col-6 p-5 border">
+                <h2 class="text-center" id="humid">Humidity Level</h2>
+                <p>Status: weather</p>
+                <p>Status: temp</p>
+              </div>
+              
+            </div>
+            
+            <div class="row">
+              
+              <div class="col-12 p-5 border">
+                <h2 class="text-center" id="weekly">Future Forecast</h2>
+                <p>Status: weather</p>
+                <p>Status: temp</p>
+              </div>
+              
+            </div>
+            
+          </div>
+    </main>
+
+
+    <!--Optional Scripts-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+  </body>
+</html>
+
+
+
