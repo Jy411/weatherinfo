@@ -1,0 +1,30 @@
+Search From
+#search - form id for use to enter city or country name
+#sName - input value id
+
+Main Info
+#cName - display city name 
+#cTemp - display city current temp
+#cStats - display city current weather
+
+Wind
+#wind - title id
+#windStats - direction with speed
+
+Pollution Index
+#pollIndex - title id
+#aqi - status id
+
+Daily Forecast
+#dailyForecast - title id
+.daily - image class
+
+Precipitation
+#precip - title id
+
+Humidity
+#humid - title id
+
+Future Forecast
+#threeDay - container id
+.day - image class

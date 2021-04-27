@@ -20,82 +20,186 @@
     </header>
 
     <main>
+        
+        <!--Search-->
         <div class="container p-5">
             <form>
-              <input id="cname" placeholder="Enter city name">
-              <button class="btn" id="search">Search</button>
+                <input id="sName" placeholder="Enter city name">
+                <button class="btn" id="search">Search</button>
             </form>
-            
+            <button class="btn" id="toggleTemp">Change Tempreature to Farrenheit</button>
+        </div>
+        <!--/.Search-->
+    
+        <!--Main Info-->
+        <div class="container">
             <div class="row">
+          
+            <div class="col-sm-12 p-5">
+                <div class="col-sm-12 p-5 border">
+                    <h1 class="text-left" id="cName">Brunei Darussalam</h1>
+                    <!--add toggle button for c and F-->
+                    <div class="row">
+                        <div class="col-sm-6">
+                        <p class="text-left" id="cTemp">20&deg;C</p>
+                    </div>
+                      
+                    <div class="col-sm-6" id="cStats">
+                        <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
+                        <small class="text-left mb-5">weather status/ex, Raining</small> 
+                    </div>
+                </div>
+            </div>
+          
+            </div>
+        </div>
+        <!--./Main Info-->
+        
+        <!--Pollution index and -->
+        <div class="container">
+            <div class="row">
+          
+                <div class="col-sm-6 p-5 border">
+                    <h2 class="text-center mb-4" id="wind">Wind</h2>
+                    <p class="text-center" id="windStats">Status: direction</p>
+                    <p class="text-center" id="windStats">Status: speed</p>
+                </div>
+          
+                <div class="col-sm-6 p-5 border">
+                    <h2 class="text-center mb-4" id="pollIndex">Pollution Index</h2>
+                    <p class="text-center" id="aqi">56 Moderate</p>
+                    
+                    <!-- color coded add background color to the table-->
+                    <!--Table-->
+                    <small>
+                        <div class="divTable">
+                            <div class="divTableBody">
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;Index</div>
+                                    <div class="divTableCell">&nbsp;Status</div>
+                                </div>
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;0 - 50:</div>
+                                    <div class="divTableCell">&nbsp;Good</div>
+                                </div>
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;51 - 100:</div>
+                                    <div class="divTableCell">&nbsp;Moderate</div>
+                                </div>
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;101 - 150:</div>
+                                    <div class="divTableCell">&nbsp;Unhealthy for sensitive groups</div>
+                                </div>
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;151 - 200:</div>
+                                    <div class="divTableCell">&nbsp;Unhealthy</div>
+                                </div>
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;201 - 300:</div>
+                                    <div class="divTableCell">&nbsp;Very Unhealthy</div>
+                                </div>
+                                
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;300+:</div>
+                                    <div class="divTableCell">&nbsp;Hazardous</div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </small>
+            <!--./Table-->
+            
+                </div>
+            </div>
+        </div>
+        <!--./Pollution index and -->
+        
+        <!--Daily Forecast-->
+        <div class="container">
+            <!--Daily Forcast Level-->
+            <div class="row">
+            
+                <div class="col-sm-12 p-5 border">
+                    <h2 class="text-center" id="dailyForecast">Daily Forcast</h2>
+                    
+                    <div class="row">
+                        <!--Daily Forcast 6hr difference-->
+                        <div class="col-sm-3 border">    
+                            <img src="https://bloximages.newyork1.vip.townnews.com/northwestgeorgianews.com/content/tncms/assets/v3/editorial/9/cf/9cf0d394-2352-11e3-9d30-001a4bcf6878/565f5a4629c30.image.jpg?resize=288%2C295" class="w-25 daily">
+                            <p>20&deg;C</p>
+                        </div>
+                        
+                        <div class="col-sm-3 border">
+                          <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25 daily">
+                          <p>20&deg;C</p>
+                        </div>
+                        
+                        <div class="col-sm-3 border">
+                          <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25 daily">
+                          <p>20&deg;C</p>
+                        </div>
+                        
+                        <div class="col-sm-3 border">
+                          <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25 daily">
+                          <p>20&deg;C</p>
+                        </div>
+                          
+                    </div>
+    
+                </div>
+            </div>
+            <!--./Daily Forcast Level-->
+        </div>
+        <!--./Daily Forecast-->
+        
+        <!--Precipitation-->
+        <div class="container">
+            <div class="row">
+            
+                <div class="col-sm-6 p-5 border">
+                    <h2 class="text-center" id="precip">Precipitation</h2>
+                    <p>Status: bar or line</p>
+                </div>
+        
+                <div class="col-sm-6 p-5 border">
+                    <h2 class="text-center" id="humid">Humidity </h2>
+                    <p>Status: bar or line</p>
+                </div>
+            
+            </div>
+        </div>
+        <!--./Precipitation-->
+    
+        <!--threeday Forecast-->
+        <div class="container border">
+            <h2 class="text-center" id="threeDay">Future Forecast</h2>
+            <div class="row p-5">
+    
+                <div class="col-sm-4 border day">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
+                    <p>Status: temp</p>
+                </div>
               
-              <div class="col-12 p-5 border">
-                <h1 class="text-center" id="weekly">Brunei Darussalam</h1>
-                <p class="text-left" id="temp">20&deg;C<span id="low">/40&deg;F</span></p>
-                <small class="text-left mb-5">Mostly Cloudy</small>  
-              </div>
+                <div class="col-sm-4 border day">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
+                    <p>Status: temp</p>
+                </div>
+              
+                <div class="col-sm-4 border day">
+                    <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
+                    <p>Status: temp</p>
+                </div>
               
             </div>
-            
-            <div class="row">
-              
-              <div class="col-6 p-5 border">
-                <!--<h2 class="text-center" id="temp">20&deg;C/40&deg;F</h2>-->
-                <p>Status: 1400 sunny</p>
-                <p>Status: +1 hr sunny</p>
-              </div>
-              
-              <div class="col-6 p-5 border">
-                <h2 class="text-center" id="pollIndex">Pollution Index</h2>
-                <p>Status: 50 Good green smile</p>
-                <!-- color coded-->
-                <small> 0-50: Good </small><br>
-                <small> 51-100: Moderate </small><br>
-                <small> 101-150: Unhealthy for sensitive groups </small><br>
-                <small> 151-200: Unhealthy </small><br>
-                <small> 201-300: Very Unhealthy </small><br>
-                <small> 300+: Hazardous </small>
-              </div>
-              
-            </div>
-             
-            <div class="row">
-              
-              <div class="col-12 p-5 border">
-                <h2 class="text-center" id="dailyForecast">forcast within 24hr</h2>
-                <p>Status: weather</p>
-                <p>Status: temp</p>
-              </div>
-              
-            </div>
-            
-            <div class="row">
-              
-              <div class="col-6 p-5 border">
-                <h2 class="text-center" id="rain">Rain Precipitation</h2>
-                <p>Status: weather</p>
-                <p>Status: temp</p>
-              </div>
-              
-              <div class="col-6 p-5 border">
-                <h2 class="text-center" id="humid">Humidity Level</h2>
-                <p>Status: weather</p>
-                <p>Status: temp</p>
-              </div>
-              
-            </div>
-            
-            <div class="row">
-              
-              <div class="col-12 p-5 border">
-                <h2 class="text-center" id="weekly">Future Forecast</h2>
-                <p>Status: weather</p>
-                <p>Status: temp</p>
-              </div>
-              
-            </div>
-            
-          </div>
-    </main>
+        </div>
+        <!--./threeday Forecast-->
+        </main>
 
 
     <!--Optional Scripts-->
