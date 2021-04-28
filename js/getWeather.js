@@ -11,7 +11,7 @@ let tempUnit = "M";
 
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", function(){
-	let searchInput = document.getElementById("searchInput").value;
+	let searchInput = document.getElementById("locationSearch").value;
 
 	let searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
 	let searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
