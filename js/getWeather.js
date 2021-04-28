@@ -19,7 +19,7 @@ searchBtn.addEventListener("click", function(){
 	getWeather(searchUrl);
 	getForecast(searchUrl2);
 });
-
+/*
 let currentLoc = document.getElementById("currentLoc");
 currentLoc.addEventListener("click", function(){
 	const data = getObject(ipAddressUrl);
@@ -29,7 +29,8 @@ currentLoc.addEventListener("click", function(){
 	getWeather(currentUrl);
 	getForecast(forecastUrl);
 });
-
+*/
+/*
 let changeUnit = document.getElementById("changeUnit");
 changeUnit.addEventListener("click", function(){
 	if (tempUnit == "M") {
@@ -42,7 +43,7 @@ changeUnit.addEventListener("click", function(){
 		changeUnit.innerText = "Change to Fahrenheit";
 	}
 });
-
+*/
 function getLatLon() {
 	const data = getObject(ipAddressUrl);
 	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
