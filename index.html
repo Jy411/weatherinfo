@@ -1,142 +1,143 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
     <title>Weather</title>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <header>
-      <h1 class="text-center m-5">Weather</h1>
-    </header>
+<header>
+    <h1 class="text-center m-5">Weather</h1>
+</header>
 
-    <main>
-        
-        <!--Search-->
-        <div class="container p-5">
+<main>
 
-            <input id="searchInput" placeholder="Enter city name">
-            <button class="btn" id="searchBtn">Search</button>
-            <button class="btn mr-1" id="changeUnit">Change to Fahrenheit</button>
-            <button id="currentLoc" class="btn btn-secondary">Current Location</button>
-        </div>
-        <!--/.Search-->
-    
-        <!--Main Info-->
-        <div class="container">
-            <div class="row">
-          
+    <!--Search-->
+    <div class="container p-5">
+        <label for="locationSearch">Location: </label>
+        <input type="text" id="locationSearch" placeholder="Enter City">
+        <button class="btn-primary" id="searchBtn">Search</button>
+<!--        <button class="btn mr-1" id="changeUnit">Change to Fahrenheit</button>-->
+<!--        <button id="currentLoc" class="btn btn-secondary">Current Location</button>-->
+    </div>
+    <!--/.Search-->
+
+    <!--Main Info-->
+    <div class="container">
+        <div class="row">
+
             <div class="col-sm-12 p-5">
                 <div class="col-sm-12 p-5 border">
                     <h1 class="text-left" id="city"></h1>
                     <!--add toggle button for c and F-->
                     <div class="row">
                         <div class="col-sm-6">
-                        <div class="d-flex">
-                            <h2 id="temp"></h2>
-                            <h2>&deg;</h2>
-                            <h2 class="tempUnit"></h2>
+                            <div class="d-flex">
+                                <h2 id="temp"></h2>
+                                <h2>&deg;</h2>
+                                <h2 class="tempUnit"></h2>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6" id="cStats">
+                            <img id="weatherIcon" src="" class="w-25">
+                            <small id="desc" class="text-left mb-5"></small>
                         </div>
                     </div>
-                      
-                    <div class="col-sm-6" id="cStats">
-                        <img id="weatherIcon" src="" class="w-25">
-                        <small id="desc" class="text-left mb-5"></small> 
-                    </div>
                 </div>
-            </div>
-          
+
             </div>
         </div>
         <!--./Main Info-->
-        
+
         <!--Pollution index and -->
         <div class="container">
             <div class="row">
-          
+
                 <div class="col-sm-6 p-5 border">
                     <h2 class="text-center mb-4" id="wind">Wind</h2>
                     <p class="text-center" id="windDir"></p>
                     <p class="text-center" id="windSpeed"></p>
                 </div>
-          
+
                 <div class="col-sm-6 p-5 border">
                     <h2 class="text-center mb-4" id="pollIndex">Pollution Index</h2>
                     <p class="text-center" id="airQuality"></p>
-                    
+
                     <!-- color coded add background color to the table-->
                     <!--Table-->
                     <small>
                         <div class="divTable">
                             <div class="divTableBody">
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;Index</div>
                                     <div class="divTableCell">&nbsp;Status</div>
                                 </div>
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;0 - 50:</div>
                                     <div class="divTableCell">&nbsp;Good</div>
                                 </div>
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;51 - 100:</div>
                                     <div class="divTableCell">&nbsp;Moderate</div>
                                 </div>
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;101 - 150:</div>
                                     <div class="divTableCell">&nbsp;Unhealthy for sensitive groups</div>
                                 </div>
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;151 - 200:</div>
                                     <div class="divTableCell">&nbsp;Unhealthy</div>
                                 </div>
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;201 - 300:</div>
                                     <div class="divTableCell">&nbsp;Very Unhealthy</div>
                                 </div>
-                                
+
                                 <div class="divTableRow">
                                     <div class="divTableCell">&nbsp;300+:</div>
                                     <div class="divTableCell">&nbsp;Hazardous</div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </small>
-            <!--./Table-->
-            
+                    <!--./Table-->
+
                 </div>
             </div>
         </div>
         <!--./Pollution index and -->
-        
+
         <!--Daily Forecast-->
         <div class="container">
             <!--Daily Forcast Level-->
             <div class="row">
-            
+
                 <div class="col-sm-12 p-5 border">
                     <h2 class="text-center" id="dailyForecast">Daily Forcast</h2>
-                    
+
                     <div class="row">
                         <!--Daily Forcast 6hr difference-->
                         <div class="col-sm-2 border">
                             <h2 class="date"></h2>
-                            <p class="dayTitle text-muted"></p>    
+                            <p class="dayTitle text-muted"></p>
                             <img src="" class="imgFc daily">
                             <div class="d-flex">
                                 <h2 class="tempForecast"></h2>
@@ -144,33 +145,11 @@
                                 <h2 class="tempUnit"></h2>
                             </div>
                         </div>
-                        
+
                         <div class="col-sm-2 border">
                             <h2 class="date"></h2>
                             <p class="dayTitle text-muted"></p>
-                          <img src="g" class="imgFc daily">
-                            <div class="d-flex">
-                                <h2 class="tempForecast"></h2>
-                                <h2>&deg;</h2>
-                                <h2 class="tempUnit"></h2>
-                            </div>
-                        </div>
-                        
-                        <div class="col-sm-2 border">
-                            <h2 class="date"></h2>
-                            <p class="dayTitle text-muted"></p>
-                          <img src="" class="imgFc daily">
-                            <div class="d-flex">
-                                <h2 class="tempForecast"></h2>
-                                <h2>&deg;</h2>
-                                <h2 class="tempUnit"></h2>
-                            </div>
-                        </div>
-                        
-                        <div class="col-sm-2 border">
-                            <h2 class="date"></h2>
-                            <p class="dayTitle text-muted"></p>
-                          <img src="" class="imgFc daily">
+                            <img src="g" class="imgFc daily">
                             <div class="d-flex">
                                 <h2 class="tempForecast"></h2>
                                 <h2>&deg;</h2>
@@ -181,7 +160,7 @@
                         <div class="col-sm-2 border">
                             <h2 class="date"></h2>
                             <p class="dayTitle text-muted"></p>
-                          <img src="" class="imgFc daily">
+                            <img src="" class="imgFc daily">
                             <div class="d-flex">
                                 <h2 class="tempForecast"></h2>
                                 <h2>&deg;</h2>
@@ -192,72 +171,105 @@
                         <div class="col-sm-2 border">
                             <h2 class="date"></h2>
                             <p class="dayTitle text-muted"></p>
-                          <img src="" class="imgFc daily">
+                            <img src="" class="imgFc daily">
                             <div class="d-flex">
                                 <h2 class="tempForecast"></h2>
                                 <h2>&deg;</h2>
                                 <h2 class="tempUnit"></h2>
                             </div>
                         </div>
-                          
+
+                        <div class="col-sm-2 border">
+                            <h2 class="date"></h2>
+                            <p class="dayTitle text-muted"></p>
+                            <img src="" class="imgFc daily">
+                            <div class="d-flex">
+                                <h2 class="tempForecast"></h2>
+                                <h2>&deg;</h2>
+                                <h2 class="tempUnit"></h2>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-2 border">
+                            <h2 class="date"></h2>
+                            <p class="dayTitle text-muted"></p>
+                            <img src="" class="imgFc daily">
+                            <div class="d-flex">
+                                <h2 class="tempForecast"></h2>
+                                <h2>&deg;</h2>
+                                <h2 class="tempUnit"></h2>
+                            </div>
+                        </div>
+
                     </div>
-    
+
                 </div>
             </div>
             <!--./Daily Forcast Level-->
         </div>
         <!--./Daily Forecast-->
-        
+
         <!--Precipitation-->
         <div class="container">
             <div class="row">
-            
+
                 <div class="col-sm-6 p-5 border">
                     <h2 class="text-center" id="precip"></h2>
                     <p class="text-muted">Precipitation</p>
                 </div>
-        
+
                 <div class="col-sm-6 p-5 border">
                     <h2 class="text-center" id="humid"></h2>
                     <p class="text-muted">Humidity</p>
                 </div>
-            
+
             </div>
         </div>
         <!--./Precipitation-->
-    
+
         <!--threeday Forecast-->
         <div class="container border">
             <h2 class="text-center" id="threeDay">Future Forecast</h2>
             <div class="row p-5">
-    
+
                 <div class="col-sm-4 border day">
                     <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
                     <p>Status: temp</p>
                 </div>
-              
+
                 <div class="col-sm-4 border day">
                     <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
                     <p>Status: temp</p>
                 </div>
-              
+
                 <div class="col-sm-4 border day">
                     <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
                     <p>Status: temp</p>
                 </div>
-              
+
             </div>
         </div>
         <!--./threeday Forecast-->
-        </main>
+    </div>
+</main>
 
 
-    <!--Optional Scripts-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <script src="js/getWeather.js" type="text/javascript"></script>
-  </body>
+<!--Optional Scripts-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+        crossorigin="anonymous"></script>
+<script src="js/getWeather.js" type="text/javascript"></script>
+<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALDoSgrPUjM4VK_6rohBIKhXy2oXRJDYM&libraries=places&callback=initSearch">
+</script>
+<script src="js/searchSuggestions.js"></script>
+</body>
 </html>
 
 
