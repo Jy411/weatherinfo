@@ -17,7 +17,7 @@ searchBtn.addEventListener("click", function(){
 	let searchInput = document.getElementById("searchInput").value;
 
 	let searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
-	let searchUrl2 = `http://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
+	let searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
 	
 	getWeather(searchUrl);
 	getForecast(searchUrl2);
@@ -25,9 +25,9 @@ searchBtn.addEventListener("click", function(){
 
 let currentLoc = document.getElementById("currentLoc");
 currentLoc.addEventListener("click", function(){
-	const data = getObjectIP(ipAddressUrl);
+	const data = getObject(ipAddressUrl);
 	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
-	forecastUrl = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
+	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
 
 	getWeather(currentUrl);
 	getForecast(forecastUrl);
@@ -47,9 +47,9 @@ changeUnit.addEventListener("click", function(){
 });
 
 function getLatLon() {
-	const data = getObjectIP(ipAddressUrl);
+	const data = getObject(ipAddressUrl);
 	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
-	forecastUrl = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
+	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
 }
 getLatLon();
 
@@ -92,7 +92,7 @@ function setWeatherUnit(data) {
 }
 
 function getForecast(url) {
-	const data = getObjectForecast(url);
+	const data = getObject(url);
 	let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 	for (let i = 0; i < 6; i++) {
 		let date = new Date(data.data[i+1].datetime);
@@ -108,20 +108,6 @@ function getForecast(url) {
 getForecast(forecastUrl);
 
 function getObject(url){
-	let HttpRequest = new XMLHttpRequest();
-	HttpRequest.open("GET", url, false);
-	HttpRequest.send(null);
-	return JSON.parse(HttpRequest.responseText);          
-}
-
-function getObjectForecast(url){
-	let HttpRequest = new XMLHttpRequest();
-	HttpRequest.open("GET", url, false);
-	HttpRequest.send(null);
-	return JSON.parse(HttpRequest.responseText);          
-}
-
-function getObjectIP(url){
 	let HttpRequest = new XMLHttpRequest();
 	HttpRequest.open("GET", url, false);
 	HttpRequest.send(null);
