@@ -9,9 +9,6 @@ let forecastUrl = "";
 // default unit
 let tempUnit = "M";
 
-// clear search value
-document.getElementById("searchInput").value = "";
-
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", function(){
 	let searchInput = document.getElementById("searchInput").value;
