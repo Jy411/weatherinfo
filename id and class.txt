@@ -28,3 +28,67 @@ Humidity
 Future Forecast
 #threeDay - container id
 .day - image class
+
+unused code
+
+<!--Hourly Forecast by 6hrs-->
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="col-sm-12 p-5 border">
+                <h2 class="text-center" id="dailyForecast">Hourly Forecast</h2>
+
+                <div class="row">
+                    
+                    <div class="col-sm-3 border">
+                        <h2 class="hourlyTime"></h2>
+                        <p class="hourDayTitle text-muted"></p>
+                        <img src="" class="imgHr daily">
+                        <div class="d-flex">
+                            <h2 class="tempHour"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 border">
+                        <h2 class="hourlyTime"></h2>
+                        <p class="hourDayTitle text-muted"></p>
+                        <img src="" class="imgHr daily">
+                        <div class="d-flex">
+                            <h2 class="tempHour"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 border">
+                        <h2 class="hourlyTime"></h2>
+                        <p class="hourDayTitle text-muted"></p>
+                        <img src="" class="imgHr daily">
+                        <div class="d-flex">
+                            <h2 class="tempHour"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 border">
+                        <h2 class="hourlyTime"></h2>
+                        <p class="hourDayTitle text-muted"></p>
+                        <img src="" class="imgHr daily">
+                        <div class="d-flex">
+                            <h2 class="tempHour"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+<!--./Hourly Forecast by 6hrs-->

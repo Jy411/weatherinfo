@@ -27,12 +27,11 @@
             <label for="locationSearch">Location: </label> 
             <input type="text" id="locationSearch" placeholder="Enter City"> 
             <button class="btn-primary" id="searchBtn">Search</button> 
-    
-    <!--        <button id="currentLoc" class="btn btn-secondary">Current Location</button>--> 
+        <!--<button id="currentLoc" class="btn btn-secondary">Current Location</button>--> 
         </div>
         <!--/.Search-->
     
-    <!--Main Info--> 
+<!--Main Info--> 
     <div class="container border"> 
         <div class="row"> 
 
@@ -58,69 +57,8 @@
             </div> 
         </div> 
     </div>
-    <!--./Main Info--> 
+<!--./Main Info--> 
 
-    <!--Hourly Forecast by 6hrs-->
-    <div class="container">
-        
-        <div class="row">
-
-            <div class="col-sm-12 p-5 border">
-                <h2 class="text-center" id="dailyForecast">Hourly Forecast</h2>
-
-                <div class="row">
-                    
-                    <div class="col-sm-3 border">
-                        <h2 class="hourlyTime"></h2>
-                        <p class="hourDayTitle text-muted"></p>
-                        <img src="" class="imgHr daily">
-                        <div class="d-flex">
-                            <h2 class="tempHour"></h2>
-                            <h2>&deg;</h2>
-                            <h2 class="tempUnit"></h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 border">
-                        <h2 class="hourlyTime"></h2>
-                        <p class="hourDayTitle text-muted"></p>
-                        <img src="" class="imgHr daily">
-                        <div class="d-flex">
-                            <h2 class="tempHour"></h2>
-                            <h2>&deg;</h2>
-                            <h2 class="tempUnit"></h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 border">
-                        <h2 class="hourlyTime"></h2>
-                        <p class="hourDayTitle text-muted"></p>
-                        <img src="" class="imgHr daily">
-                        <div class="d-flex">
-                            <h2 class="tempHour"></h2>
-                            <h2>&deg;</h2>
-                            <h2 class="tempUnit"></h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3 border">
-                        <h2 class="hourlyTime"></h2>
-                        <p class="hourDayTitle text-muted"></p>
-                        <img src="" class="imgHr daily">
-                        <div class="d-flex">
-                            <h2 class="tempHour"></h2>
-                            <h2>&deg;</h2>
-                            <h2 class="tempUnit"></h2>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-        
-    </div>
-<!--./Hourly Forecast by 6hrs-->
 
 <!--Hourly Forecast by 4hrs-->
 <div class="container">
@@ -206,14 +144,53 @@
 </div>
 <!--./HourlyForecast by 4 hrs-->
 
-    <!--Pollution index and -->
+<div class="container border">
+    <h2 class="text-center my-4">UV Index Forecast</h2>
+    <div class="row p-5">
+        <div class="col-sm-12 border ">
+            <h2 class="text-center" id="">0 Low</h2>
+            <p class="text-center mb-5" id="">There is a low danger from the sun's UV rays for the average healthy person.</p>
+            <div class="progress_bar my-4">
+                <div class="pro-bar" style="width: 47%; background: linear-gradient(to right,#d98164 35%,#a9b487 68%);">
+                    <span>47%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="text-center my-4">Visibility Level</h2>
+    <div class="row p-5">
+        <div class="col-sm-12 border">
+            <h2 class="text-center" id="">Level</h2>
+            <p class="text-center" id=""> Visibility Level</p>
+        </div>
+    </div>
+
+</div>
+
+
+<!--Pollution index and -->
         <div class="container">
             <div class="row">
 
                 <div class="col-sm-6 p-5 border">
+
                     <h2 class="text-center mb-4" id="wind">Wind</h2>
-                    <p class="text-center" id="windDir"></p>
-                    <p class="text-center" id="windSpeed"></p>
+                    <div class="row p-5">
+                        <div class="col-sm-12 border">
+                            <p class="text-center" id="windDir"></p>
+                            <p class="text-center" id="windSpeed"></p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-center my-4" id="">Atmospheric Pressure</h2>
+                    <div class="row my-4 p-5">
+                        <div class="col-sm-12 border">
+                            <p class="text-center" id=""></p>
+                            <p class="text-center" id=""></p>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="col-sm-6 p-5 border">
