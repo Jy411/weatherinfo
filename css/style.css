@@ -1,6 +1,23 @@
 
 body{
     color: black;
+    /* add by khalis
+    background-image plan to give fade, and js to change of weather
+    */
+    background-color: whitesmoke;
+    background-image: linear-gradient(#f6f5bc, #ffffff);
+    transition: background-image 500s linear;
+}
+
+/* add border left and right
+Note:
+plan to put shadow
+*/
+#border {
+    margin:auto;
+    width:50%;
+    border-left:black solid 1px;
+    border-right:black solid 1px;
 }
  
 /*--------------------------------
