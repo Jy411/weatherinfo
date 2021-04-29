@@ -24,33 +24,189 @@
         
         <!--Search-->
         <div class="container p-5">
-            <form>
-                <input id="sName" placeholder="Enter city name">
-                <button class="btn" id="search">Search</button>
-            </form>
-            <button class="btn" id="toggleTemp">Change Tempreature to Farrenheit</button>
+            <label for="locationSearch">Location: </label> 
+            <input type="text" id="locationSearch" placeholder="Enter City"> 
+            <button class="btn-primary" id="searchBtn">Search</button> 
+    
+    <!--        <button id="currentLoc" class="btn btn-secondary">Current Location</button>--> 
         </div>
         <!--/.Search-->
     
-        <!--Main Info-->
-        <div class="container">
-            <div class="row">
-          
-            <div class="col-sm-12 p-5">
-                <div class="col-sm-12 p-5 border">
-                    <h1 class="text-left" id="cName">Brunei Darussalam</h1>
-                    <!--add toggle button for c and F-->
-                    <div class="row">
-                        <div class="col-sm-6">
-                        <p class="text-left" id="cTemp">20&deg;C</p>
+    <!--Main Info--> 
+    <div class="container border"> 
+        <div class="row"> 
+
+            <div class="col-sm-12 p-5 "> 
+                <h1 class="text-left" id="city"></h1>
+                <p class="">Add time and date or day</p> 
+                <!--add toggle button for c and F--> 
+                <div class="row"> 
+                    <div class="col-sm-6"> 
+                        <div class="d-flex"> 
+                            <h2 id="temp"></h2> 
+                            <h2>&deg;</h2> 
+                            <h2 class="tempUnit"></h2> 
+                        </div>
+                    <button class="btn-primary" id="changeUnit">&deg;C / &deg;F</button>
+                    </div> 
+ 
+                    <div class="col-sm-6" id="cStats"> 
+                        <img id="weatherIcon" src="" class="w-25"> 
+                        <small id="desc" class="text-left mb-5"></small> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div>
+    <!--./Main Info--> 
+
+    <!--Hourly Forecast by 6hrs-->
+    <div class="container">
+        
+        <div class="row">
+
+            <div class="col-sm-12 p-5 border">
+                <h2 class="text-center" id="dailyForecast">Hourly Forcast</h2>
+
+                <div class="row">
+                    
+                    <div class="col-sm-3 border">
+                        <h2 class=""></h2>
+                        <p class=" text-muted"></p>
+                        <img src="" class="imgFc daily">
+                        <div class="d-flex">
+                            <h2 class="tempForecast"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
                     </div>
+
+                    <div class="col-sm-3 border">
+                        <h2 class="dte"></h2>
+                        <p class=" text-muted"></p>
+                        <img src="" class="imgFc daily">
+                        <div class="d-flex">
+                            <h2 class="tempForecast"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 border">
+                        <h2 class=""></h2>
+                        <p class=" text-muted"></p>
+                        <img src="" class="imgFc daily">
+                        <div class="d-flex">
+                            <h2 class="tempForecast"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 border">
+                        <h2 class=""></h2>
+                        <p class=" text-muted"></p>
+                        <img src="" class="imgFc daily">
+                        <div class="d-flex">
+                            <h2 class="tempForecast"></h2>
+                            <h2>&deg;</h2>
+                            <h2 class="tempUnit"></h2>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
-        <!--./Main Info-->
+        
+    </div>
+<!--./Hourly Forecast by 6hrs-->
 
-        <!--Pollution index and -->
+<!--Hourly Forecast by 4hrs-->
+<div class="container">
+    
+    <div class="row">
+
+        <div class="col-sm-12 p-5 border">
+            <h2 class="text-center" id="dailyForecast">Hourly Forecast by 4hrs</h2>
+
+            <div class="row">
+                
+                <div class="col-sm-2 border">
+                    <h2 class=""></h2>
+                    <p class=" text-muted"></p>
+                    <img src="" class="imgFc daily">
+                    <div class="d-flex">
+                        <h2 class="tempForecast"></h2>
+                        <h2>&deg;</h2>
+                        <h2 class="tempUnit"></h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 border">
+                    <h2 class=""></h2>
+                    <p class=" text-muted"></p>
+                    <img src="" class="imgFc daily">
+                    <div class="d-flex">
+                        <h2 class="tempForecast"></h2>
+                        <h2>&deg;</h2>
+                        <h2 class="tempUnit"></h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 border">
+                    <h2 class=""></h2>
+                    <p class=" text-muted"></p>
+                    <img src="" class="imgFc daily">
+                    <div class="d-flex">
+                        <h2 class="tempForecast"></h2>
+                        <h2>&deg;</h2>
+                        <h2 class="tempUnit"></h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 border">
+                    <h2 class=""></h2>
+                    <p class=" text-muted"></p>
+                    <img src="" class="imgFc daily">
+                    <div class="d-flex">
+                        <h2 class="tempForecast"></h2>
+                        <h2>&deg;</h2>
+                        <h2 class="tempUnit"></h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 border">
+                    <h2 class=""></h2>
+                    <p class=" text-muted"></p>
+                    <img src="" class="imgFc daily">
+                    <div class="d-flex">
+                        <h2 class="tempForecast"></h2>
+                        <h2>&deg;</h2>
+                        <h2 class="tempUnit"></h2>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 border">
+                    <h2 class=""></h2>
+                    <p class=" text-muted"></p>
+                    <img src="" class="imgFc daily">
+                    <div class="d-flex">
+                        <h2 class="tempForecast"></h2>
+                        <h2>&deg;</h2>
+                        <h2 class="tempUnit"></h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+<!--./HourlyForecast by 4 hrs-->
+
+    <!--Pollution index and -->
         <div class="container">
             <div class="row">
 
@@ -112,9 +268,9 @@
                 </div>
             </div>
         </div>
-        <!--./Pollution index and -->
+    <!--./Pollution index and -->
 
-        <!--Daily Forecast-->
+    <!--Daily Forecast-->
         <div class="container">
             <!--Daily Forcast Level-->
             <div class="row">
@@ -123,7 +279,7 @@
                     <h2 class="text-center" id="dailyForecast">Daily Forcast</h2>
 
                     <div class="row">
-                        <!--Daily Forcast 6hr difference-->
+                        
                         <div class="col-sm-2 border">
                             <h2 class="date"></h2>
                             <p class="dayTitle text-muted"></p>
@@ -196,9 +352,9 @@
             </div>
             <!--./Daily Forcast Level-->
         </div>
-        <!--./Daily Forecast-->
+    <!--./Daily Forecast-->
 
-        <!--Precipitation-->
+    <!--Precipitation-->
         <div class="container">
             <div class="row">
 
@@ -214,32 +370,8 @@
 
             </div>
         </div>
-        <!--./Precipitation-->
+    <!--./Precipitation-->
 
-        <!--threeday Forecast-->
-        <div class="container border">
-            <h2 class="text-center" id="threeDayForecast">Future Forecast</h2>
-            <div class="row p-5">
-
-                <div class="col-sm-4 border day">
-                    <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
-                    <p>Status: temp</p>
-                </div>
-
-                <div class="col-sm-4 border day">
-                    <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
-                    <p>Status: temp</p>
-                </div>
-
-                <div class="col-sm-4 border day">
-                    <img src="https://images-eu.ssl-images-amazon.com/images/I/71UnO0vNYHL.png" class="w-25">
-                    <p>Status: temp</p>
-                </div>
-
-            </div>
-        </div>
-        <!--./threeday Forecast-->
-    </div>
 </main>
 
 
