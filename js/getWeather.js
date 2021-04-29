@@ -98,28 +98,41 @@ function setWeather(data) {
 	document.getElementById("desc").innerText = data.data[0].weather.description;
 	document.getElementById("weatherIcon").setAttribute("src", weatherSrc);
 	document.getElementById("humid").innerText = Math.round(data.data[0].rh) + "%";
-	//document.getElementById("pressure").innerText = data.data[0].pres + " mb";
+	document.getElementById("pressure").innerText = data.data[0].pres + " mb";
 	document.getElementById("windDir").innerText = data.data[0].wind_cdir_full.charAt(0).toUpperCase();
-	//document.getElementById("uvLevel").innerText = Math.round(data.data[0].uv);
+	document.getElementById("uvLevel").innerText = Math.round(data.data[0].uv);
 	document.getElementById("airQuality").innerText = data.data[0].aqi;
+	if (data.data[0].uv <= 2) {
+		document.getElementById("uv-desc").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
+	} else if (data.data[0].uv > 2 && data.data[0].uv <= 5) {
+		document.getElementById("uv-desc").innerText = "There is a moderate risk of harm from unprotected sun exposure.";
+	} else if (data.data[0].uv > 5 && data.data[0].uv <= 7) {
+		document.getElementById("uv-desc").innerText = "There is a high risk of harm from unprotected sun exposure.";
+	} else if (data.data[0].uv > 7 && data.data[0].uv <= 10) {
+		document.getElementById("uv-desc").innerText = "There is a very risk of harm from unprotected sun exposure.";
+	} else if (data.data[0].uv > 10) {
+		document.getElementById("uv-desc").innerText = "There is an extreme risk of harm from unprotected sun exposure.";
+	}
+	let probarWidth = (data.data[0].uv / 12) * 100 + "%";
+	document.getElementsByClassName("pro-bar")[0].style.width = probarWidth;
 	setWeatherUnit(data);
 }
 
 function setWeatherUnit(data) {
 	if (tempUnit == "M") {
-		for (let i = 0; i < 17; i++) {
+		for (let i = 0; i < 13; i++) {
 			document.getElementsByClassName("tempUnit")[i].innerText = "C";
 		}
 		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " mm";
 		document.getElementById("windSpeed").innerText = data.data[0].wind_spd.toFixed(1) + " m/s";
-		//document.getElementById("visibility").innerText = data.data[0].vis + " km";
+		document.getElementById("visibility").innerText = data.data[0].vis + " km";
 	} else {
-		for (let i = 0; i < 17; i++) {
+		for (let i = 0; i < 13; i++) {
 			document.getElementsByClassName("tempUnit")[i].innerText = "F";
 		}
 		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " in";
 		document.getElementById("windSpeed").innerText = data.data[0].wind_spd.toFixed(1) + " mph";
-		//document.getElementById("visibility").innerText = data.data[0].vis + " m";
+		document.getElementById("visibility").innerText = data.data[0].vis + " m";
 	}
 }
 
@@ -146,21 +159,7 @@ getForecast(forecastUrl);
 
 function getHourly(url) {
 	const data = getObject(url);
-	for (let i = 0; i < 4; i++) {
-		let date = new Date(data.data[i].timestamp_local);
-		let day = days[date.getDay()];
-		let today = days[new Date().getDay()];
-		if (day === today) {
-			day = "Today";
-		} else {
-			day = "Tomorrow"
-		}
-		document.getElementsByClassName("hourlyTime")[i].innerText = formatHour(date);;
-		document.getElementsByClassName("hourDayTitle")[i].innerText = day;
-		document.getElementsByClassName("imgHr")[i].setAttribute("src", `https://www.weatherbit.io/static/img/icons/${data.data[i].weather.icon}.png`);
-		document.getElementsByClassName("tempHour")[i].innerText = Math.round(data.data[i].temp);
-	}
-	let j = 4;
+	let j = 0;
 	for (let i = 4; i <= 24; i += 4) {
 		let date = new Date(data.data[i].timestamp_local);
 		let day = days[date.getDay()];
