@@ -108,27 +108,33 @@ function setWeather(data) {
 
 	if (data.data[0].aqi <= 50) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
-		document.getElementById("airQuality").style.color = "green";
+		//document.getElementById("airQuality").style.color = "green";
+		document.getElementById("pollBody").style.backgroundColor = "green"
 		document.getElementById("airQualityCond").innerText = "Air quality is satisfactory, and air pollution poses little or no risk.";
 	} else if (data.data[0].aqi > 51 && data.data[0].aqi <= 100) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
-		document.getElementById("airQuality").style.color = "rgb(201, 204, 0)";
+		//document.getElementById("airQuality").style.color = "rgb(201, 204, 0)";
+		document.getElementById("pollBody").style.backgroundColor = "rgb(201, 204, 0)"
 		document.getElementById("airQualityCond").innerText = "Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.";
 	} else if (data.data[0].aqi > 101 && data.data[0].aqi <= 150) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
-		document.getElementById("airQuality").style.color = "orange";
+		//document.getElementById("airQuality").style.color = "orange";
+		document.getElementById("pollBody").style.backgroundColor = "orange"
 		document.getElementById("airQualityCond").innerText = "Members of sensitive groups may experience health effects. The general public is less likely to be affected.";
 	} else if (data.data[0].aqi > 151 && data.data[0].aqi <= 200) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
-		document.getElementById("airQuality").style.color = "red";
+		//document.getElementById("airQuality").style.color = "red";
+		document.getElementById("pollBody").style.backgroundColor = "red"
 		document.getElementById("airQualityCond").innerText = "Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.";
 	} else if (data.data[0].aqi > 201 && data.data[0].aqi <= 300) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
-		document.getElementById("airQuality").style.color = "purple";
+		//document.getElementById("airQuality").style.color = "purple";
+		document.getElementById("pollBody").style.backgroundColor = "purple"
 		document.getElementById("airQualityCond").innerText = "Health alert: The risk of health effects is increased for everyone.";
 	} else if (data.data[0].aqi > 301) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
-		document.getElementById("airQuality").style.color = "maroon";
+		//document.getElementById("airQuality").style.color = "maroon";
+		document.getElementById("pollBody").style.backgroundColor = "maroon"
 		document.getElementById("airQualityCond").innerText = "Health warning of emergency conditions: everyone is more likely to be affected.";
 	}
 
