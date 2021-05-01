@@ -92,3 +92,60 @@ unused code
         
     </div>
 <!--./Hourly Forecast by 6hrs-->
+
+
+
+
+<!--AQI-->
+
+
+<div class="col-sm-6 p-5 poll">
+                    <h2 class="text-center mb-4" id="pollIndex">Pollution Index</h2>
+                    <h2 class="text-center" id="airQuality"></h2>
+
+                    <!-- color coded add background color to the table-->
+                    <!--Table-->
+                        <div class="divTable">
+                            <div class="divTableBody">
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell font-weight-bold">&nbsp;Index</div>
+                                    <div class="divTableCell font-weight-bold">&nbsp;Status</div>
+                                </div>
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;0 - 50:</div>
+                                    <div class="divTableCell">&nbsp;Good</div>
+                                </div>
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;51 - 100:</div>
+                                    <div class="divTableCell">&nbsp;Moderate</div>
+                                </div>
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;101 - 150:</div>
+                                    <div class="divTableCell">&nbsp;Unhealthy for sensitive groups</div>
+                                </div>
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;151 - 200:</div>
+                                    <div class="divTableCell">&nbsp;Unhealthy</div>
+                                </div>
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;201 - 300:</div>
+                                    <div class="divTableCell">&nbsp;Very Unhealthy</div>
+                                </div>
+
+                                <div class="divTableRow">
+                                    <div class="divTableCell">&nbsp;300+:</div>
+                                    <div class="divTableCell">&nbsp;Hazardous</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </small>
+                    <!--./Table-->
+
+                </div>

@@ -1,6 +1,7 @@
 // pressure,uv level, visibility uncomment if available
 
-let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+//let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
 // API Urls
@@ -53,9 +54,11 @@ changeUnit.addEventListener("click", function(){
 	if (tempUnit == "M") {
 		// Fahrenheit
 		tempUnit = "I";
+		changeUnit.innerHTML = "&deg;C";
 	} else {
 		// Celcius
 		tempUnit = "M";
+		changeUnit.innerHTML = "&deg;F";
 	}
 	if (lastLocation === "Current") {
 		getLatLon();
@@ -101,7 +104,34 @@ function setWeather(data) {
 	document.getElementById("pressure").innerText = data.data[0].pres + " mb";
 	document.getElementById("windDir").innerText = data.data[0].wind_cdir_full.charAt(0).toUpperCase();
 	document.getElementById("uvLevel").innerText = Math.round(data.data[0].uv);
-	document.getElementById("airQuality").innerText = data.data[0].aqi;
+	//document.getElementById("airQuality").innerText = data.data[0].aqi;
+
+	if (data.data[0].aqi <= 50) {
+		document.getElementById("airQuality").innerText = data.data[0].aqi;
+		document.getElementById("airQuality").style.color = "green";
+		document.getElementById("airQualityCond").innerText = "Air quality is satisfactory, and air pollution poses little or no risk.";
+	} else if (data.data[0].aqi > 51 && data.data[0].aqi <= 100) {
+		document.getElementById("airQuality").innerText = data.data[0].aqi;
+		document.getElementById("airQuality").style.color = "rgb(201, 204, 0)";
+		document.getElementById("airQualityCond").innerText = "Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.";
+	} else if (data.data[0].aqi > 101 && data.data[0].aqi <= 150) {
+		document.getElementById("airQuality").innerText = data.data[0].aqi;
+		document.getElementById("airQuality").style.color = "orange";
+		document.getElementById("airQualityCond").innerText = "Members of sensitive groups may experience health effects. The general public is less likely to be affected.";
+	} else if (data.data[0].aqi > 151 && data.data[0].aqi <= 200) {
+		document.getElementById("airQuality").innerText = data.data[0].aqi;
+		document.getElementById("airQuality").style.color = "red";
+		document.getElementById("airQualityCond").innerText = "Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.";
+	} else if (data.data[0].aqi > 201 && data.data[0].aqi <= 300) {
+		document.getElementById("airQuality").innerText = data.data[0].aqi;
+		document.getElementById("airQuality").style.color = "purple";
+		document.getElementById("airQualityCond").innerText = "Health alert: The risk of health effects is increased for everyone.";
+	} else if (data.data[0].aqi > 301) {
+		document.getElementById("airQuality").innerText = data.data[0].aqi;
+		document.getElementById("airQuality").style.color = "maroon";
+		document.getElementById("airQualityCond").innerText = "Health warning of emergency conditions: everyone is more likely to be affected.";
+	}
+
 	if (data.data[0].uv <= 2) {
 		document.getElementById("uv-desc").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
 	} else if (data.data[0].uv > 2 && data.data[0].uv <= 5) {

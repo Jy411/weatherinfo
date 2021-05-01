@@ -1,25 +1,41 @@
 
 body{
-    color: black;
-    /* add by khalis
-    background-image plan to give fade, and js to change of weather
-    */
+    /*background-image: linear-gradient(180deg, #FFFEFF 0%, #D7FFFE 100%);*/
     background-color: whitesmoke;
-    background-image: linear-gradient(#f6f5bc, #ffffff);
-    transition: background-image 500s linear;
+    font-family: 'Mukta', sans-serif;
 }
 
-/* add border left and right
-Note:
-plan to put shadow
-*/
-#border {
-    margin:auto;
-    width:50%;
-    border-left:black solid 1px;
-    border-right:black solid 1px;
-}
- 
+.container{width: 60%;}
+.btn{background-color: #D7FFFE;}
+
+/*weather image*/
+.imgHr, .imgFc{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+/*Container Shadow*/
+.m-info, .fourHour, .uv, .win, .poll, 
+.precipitation, .daily{
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}  
+
+/*Font Size*/
+#desc{font-size: 20px;}
+#airQuality{font-size: 50px;}
+#airQualityCond{font-size: 20px;}
+#precip, #humid{font-size:40px;}
+#temp, #tempUnit{font-size: 100px;}
+#symbol{font-size: 60px;}
+#windDir, #windSpeed, #pressure{font-size: 30px;}
+
+/*Main Info Container background color*/
+.m-info{background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);}
+
+
 /*--------------------------------
     Style for Table - Start
 --------------------------------*/
@@ -27,28 +43,21 @@ plan to put shadow
 	display: table;
 	width: 100%;
 }
+
 .divTableRow {
 	display: table-row;
 }
+
 .divTableHeading {
 	background-color: #EEE;
 	display: table-header-group;
 }
+
 .divTableCell, .divTableHead {
-	border: 1px solid #999999;
 	display: table-cell;
 	padding: 3px 10px;
 }
-.divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
-}
-.divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
-}
+
 .divTableBody {
 	display: table-row-group;
 }
@@ -56,45 +65,73 @@ plan to put shadow
     Style for Table - End
 --------------------------------*/
 
+/*--------------------------------
+    Style for Progress bar - Start
+--------------------------------*/
 .progress_bar{
     height: 20px;
     background-color:#231E26;
     border-radius:15px;
     box-shadow:0 4px 7px -5px #000 inset;
 }
+
 .progress_bar:first-child{
     margin: 50px 0;
 }
+
 .progress_bar .pro-bar{
+    background-color: linear-gradient(to right,#d98164 35%,#a9b487 68%);
     position: relative;
     height: 100%;
     box-shadow: 0 1px 11px -4px #fff inset;
     border-radius:15px;
     animation: animate-positive 4s;
 }
-.progress_bar .pro-bar > span{
-    background: linear-gradient(to top, #3d4131 35%, #fff 233%);
-    color: #a5a5a4;
-    box-shadow: 1px 1px  3px #1d1a1f;
-    font-size: 14px;
-    font-weight: 700;
-    position: absolute;
-    top: -37px;
-    right: -10%;
-    padding: 4px 10px;
-    border-radius: 3px 3px 3px 0px;
-}
-.progress_bar .pro-bar > span:after{
-    content: "";
-    border-top: 6px solid #3d4131;
-    border-right: 6px solid transparent;
-    position: absolute;
-    bottom: -6px;
-    left:0;
-}
+
 @-webkit-keyframes animate-positive {
     0% { width: 0%;}
 }
+
 @keyframes animate-positive {
     0% { width:0%; }
 }
+
+/*--------------------------------
+    Style for Progress bar - End
+--------------------------------*/
+
+/*--------------------------------
+    Media Query - Start
+--------------------------------*/
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2){
+
+    .container{width: 80%;}
+    #temp, #tempUnit{font-size: 50px;}
+    #symbol{font-size: 30px;}
+    #desc{font-size: 25px;}
+    #uv-desc{font-size: 20px;}
+    #fourHourForecast{text-align: center;}
+    #uv-desc, #uvLevel{padding-top: 30px;}
+    
+    /*splitter for fourhour and daily*/
+    .top{
+        margin-top: 20px;
+        padding-top: 60px;
+        border-top: solid 1px;
+    }
+
+    .divTableCell{
+        display: table-cell;
+        padding: 15px 10px;
+    }
+    
+    .col-sm-6{
+        padding-top: 30px;
+    }
+}
+/*--------------------------------
+    Media Query - End
+--------------------------------*/
