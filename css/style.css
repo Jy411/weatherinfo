@@ -115,7 +115,9 @@ body{
     #uv-desc{font-size: 20px;}
     #fourHourForecast{text-align: center;}
     #uv-desc, #uvLevel{padding-top: 30px;}
-    
+
+    #searchBtn{margin-top: 10px;}
+
     /*splitter for fourhour and daily*/
     .top{
         margin-top: 20px;
