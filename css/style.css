@@ -26,7 +26,7 @@ body{
 /*Font Size*/
 #desc{font-size: 20px;}
 #airQuality{font-size: 50px;}
-#airQualityCond{font-size: 20px;}
+#uv-desc, #airQualityCond{font-size: 20px;}
 #precip, #humid{font-size:40px;}
 #temp, #tempUnit{font-size: 100px;}
 #symbol{font-size: 60px;}
@@ -112,10 +112,9 @@ body{
     #temp, #tempUnit{font-size: 50px;}
     #symbol{font-size: 30px;}
     #desc{font-size: 25px;}
-    #uv-desc{font-size: 20px;}
+    #uv-desc{font-size: 19px; text-align: justify;}
     #fourHourForecast{text-align: center;}
     #uv-desc, #uvLevel{padding-top: 30px;}
-
     #searchBtn{margin-top: 10px;}
 
     /*splitter for fourhour and daily*/
