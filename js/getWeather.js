@@ -1,5 +1,6 @@
-let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+//let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
 //let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
+let apiKey = "73121a72b406470f86b3b4a67b75cd1e";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
 // API Urls
