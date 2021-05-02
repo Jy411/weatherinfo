@@ -257,6 +257,7 @@ function getAlert(url) {
 		document.getElementById("effectiveTime").innerText = "";
 		document.getElementById("expireTime").innerText = "";
 		document.getElementById("alertHead").innerText = "No weather alert for current location";
+		document.getElementById("weatherAlert").style.backgroundColor = null;
 	}else {
 		setAlert(data);
 	}
