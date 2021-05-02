@@ -249,6 +249,13 @@ window.onerror = function() {
 function getAlert(url) {
 	const data = getObject(url);
 	if (data.alerts.alert.length === 0) {
+		document.getElementById("alertSevere").innerText = "";
+		document.getElementById("alertUrgent").innerText = "";
+		document.getElementById("alertArea").innerText = "";
+		document.getElementById("alertDesc").innerText = "";
+		document.getElementById("alertInst").innerText = "";
+		document.getElementById("effectiveTime").innerText = "";
+		document.getElementById("expireTime").innerText = "";
 		document.getElementById("alertHead").innerText = "No weather alert for current location";
 	}else {
 		setAlert(data);
