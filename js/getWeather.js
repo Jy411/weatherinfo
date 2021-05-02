@@ -1,5 +1,5 @@
-//let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
-let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
+let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+//let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
 // API Urls
@@ -84,6 +84,7 @@ function getLatLon() {
 	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
 	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
 	hourlyUrl = `https://api.weatherbit.io/v2.0/forecast/hourly?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&hours=25&key=${apiKey}`;
+	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${data.latitude},${data.longitude}&alerts=yes`;
 }
 getLatLon();
 
@@ -235,15 +236,19 @@ function formatHour(date) {
 	let time = hour + " " + amPm;
 	return time;
 }
-
+/*
 window.onerror = function() {
 	alert("Please enter a valid city name");
 	return true;
 }
-
+*/
 function getAlert(url) {
 	const data = getObject(url);
-	setAlert(data);
+	if (data.alerts.alert.length === 0) {
+		document.getElementById("alertHead").innerText = "No weather alert for current location";
+	}else {
+		setAlert(data);
+	}
 }
 getAlert(alertUrl);
 
@@ -257,13 +262,6 @@ function setAlert(data) {
 	
 	document.getElementById("effectiveTime").innerText =  data.alerts.alert[0].effective;
 	document.getElementById("expireTime").innerText = data.alerts.alert[0].expires;
-	
-
-	/*if (alerts.alert = "") {
-		delete div wethrAlrt
-	}else
-		display alert
-	*/
 }
 
 function getObject(url){
