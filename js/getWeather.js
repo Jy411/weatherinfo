@@ -1,5 +1,5 @@
-//let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
-let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
+let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+//let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
 // API Urls
@@ -34,9 +34,12 @@ searchBtn.addEventListener("click", function(){
 	getHourly(searchUrl3);
 	
 });
+
 /*
 let currentLoc = document.getElementById("currentLoc");
 currentLoc.addEventListener("click", function(){
+
+
 	const data = getObject(ipAddressUrl);
 	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
 	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
@@ -44,8 +47,8 @@ currentLoc.addEventListener("click", function(){
 	getWeather(currentUrl);
 	getForecast(forecastUrl);
 	getHourly(hourlyUrl);
-});
-*/
+});*/
+
 
 let changeUnit = document.getElementById("changeUnit");
 changeUnit.addEventListener("click", function(){
@@ -58,6 +61,7 @@ changeUnit.addEventListener("click", function(){
 		tempUnit = "M";
 		changeUnit.innerHTML = "&deg;F";
 	}
+
 	if (lastLocation === "Current") {
 		getLatLon();
 		getWeather(currentUrl);
