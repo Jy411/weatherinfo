@@ -48,6 +48,7 @@ body{
 #symbol{font-size: 60px;}
 #windDir, #windSpeed, #pressure{font-size: 30px;}
 #windDirTitle{font-size: 20px;}
+#alertDesc, #alertInst, #effectiveTime, #expireTime{font-size: 18px}
 
 /*Main Info Container background color*/
 .m-info{background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);}
@@ -58,6 +59,8 @@ body{
     margin-top: 40px;
     margin-bottom: 40px;
 }
+
+
 
 /*--------------------------------
     Style for Table - Start
@@ -139,7 +142,6 @@ body{
     #fourHourForecast{text-align: center;}
     #uv-desc, #uvLevel{padding-top: 30px;}
     #searchBtn{margin-top: 10px;}
-    
 
     /*splitter for fourhour and daily*/
     .top{
@@ -166,6 +168,7 @@ body{
         margin-top: auto;
         margin-bottom: auto;
     }
+    
 
 }
 /*--------------------------------
