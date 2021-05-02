@@ -258,14 +258,14 @@ getAlert(alertUrl);
 
 function setAlert(data) {
 	document.getElementById("alertHead").innerText = data.alerts.alert[0].headline;
-	document.getElementById("alertSevere").innerText = data.alerts.alert[0].severity;
-	document.getElementById("alertUrgent").innerText = data.alerts.alert[0].urgency;
-	document.getElementById("alertArea").innerText = data.alerts.alert[0].areas;
+	document.getElementById("alertSevere").innerText = "Severity: " + data.alerts.alert[0].severity;
+	document.getElementById("alertUrgent").innerText = "Urgency: " + data.alerts.alert[0].urgency;
+	document.getElementById("alertArea").innerText = "Area Affected: " + data.alerts.alert[0].areas;
 	document.getElementById("alertDesc").innerText = data.alerts.alert[0].desc;
 	document.getElementById("alertInst").innerText = data.alerts.alert[0].instruction;
-	
-	document.getElementById("effectiveTime").innerText =  data.alerts.alert[0].effective;
-	document.getElementById("expireTime").innerText = data.alerts.alert[0].expires;
+	document.getElementById("effectiveTime").innerText = "Effective Time: " + data.alerts.alert[0].effective;
+	document.getElementById("expireTime").innerText = "Expire Time: " + data.alerts.alert[0].expires;
+	document.getElementById("weatherAlert").style.backgroundColor = "#F0E68C";
 }
 
 function getObject(url){
