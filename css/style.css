@@ -51,7 +51,7 @@ body{
 
 #weatherAlert::-webkit-scrollbar
 {
-  width: 12px;
+  width: 8px;
 }
 
 #weatherAlert::-webkit-scrollbar-thumb
