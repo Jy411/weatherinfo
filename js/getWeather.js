@@ -9,6 +9,7 @@ let hourlyUrl = "";
 let searchUrl = "";
 let searchUrl2 = "";
 let searchUrl3 = "";
+let alertUrl = "";
 
 let lastLocation = "";
 
@@ -28,11 +29,12 @@ searchBtn.addEventListener("click", function(){
 	searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
 	searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
 	searchUrl3 = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${searchInput}&units=${tempUnit}&hours=25&key=${apiKey}`;
-	
+	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${searchInput}&alerts=yes`;
+
 	getWeather(searchUrl);
 	getForecast(searchUrl2);
 	getHourly(searchUrl3);
-	
+	getAlert(alertUrl);
 });
 /*
 let currentLoc = document.getElementById("currentLoc");
@@ -237,6 +239,31 @@ function formatHour(date) {
 window.onerror = function() {
 	alert("Please enter a valid city name");
 	return true;
+}
+
+function getAlert(url) {
+	const data = getObject(url);
+	setAlert(data);
+}
+getAlert(alertUrl);
+
+function setAlert(data) {
+	document.getElementById("alertHead").innerText = data.alerts.alert[0].headline;
+	document.getElementById("alertSevere").innerText = data.alerts.alert[0].severity;
+	document.getElementById("alertUrgent").innerText = data.alerts.alert[0].urgency;
+	document.getElementById("alertArea").innerText = data.alerts.alert[0].areas;
+	document.getElementById("alertDesc").innerText = data.alerts.alert[0].desc;
+	document.getElementById("alertInst").innerText = data.alerts.alert[0].instruction;
+	
+	document.getElementById("effectiveTime").innerText =  data.alerts.alert[0].effective;
+	document.getElementById("expireTime").innerText = data.alerts.alert[0].expires;
+	
+
+	/*if (alerts.alert = "") {
+		delete div wethrAlrt
+	}else
+		display alert
+	*/
 }
 
 function getObject(url){
