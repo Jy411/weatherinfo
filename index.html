@@ -23,7 +23,7 @@
 
 <header>
     <!--Search and header-->
-    <div class="container mb-4 p-2 header-box">
+    <div class="container mb-4 pt-2 header-box">
         <div class="row">
             <div class="col-sm-6 text-center">
                 <h3 class=" font-weight-bold">Weather Info</h3>
@@ -31,7 +31,7 @@
             <div id="header-form" class="col-sm-6 text-center">
                 <label for="locationSearch">Location:</label> 
                 <input type="text" id="locationSearch" placeholder="Enter City"> 
-                <button class="btn" id="searchBtn">Search</button>
+                <button class="btn mb-1" id="searchBtn">Search</button>
             </div>
         </div>        
     <!--<button id="currentLoc" class="btn btn-secondary">Current Location</button>--> 
@@ -51,7 +51,7 @@
                 <p id="timeDateTitle" class="text-left"></p>  
                 <div class="row"> 
 
-                    <div class="col-sm-4 mt-2"> 
+                    <div class="col-sm-6 mt-2"> 
                         <div class="d-flex justify-content-left"> 
                             <p id="temp"></p> 
                             <p id="symbol">&deg;</p> 
@@ -60,9 +60,9 @@
                         <button class="btn pr-3 text-center" id="changeUnit">&deg;F</button> 
                     </div> 
     
-                    <div class="col-sm-8 mt-2 text-center" id="cStats"> 
-                        <img id="weatherIcon" src="" alt="" class="ml-auto"><br>
-                        <span id="desc" class="mb-5"></span>  
+                    <div class="col-sm-6 mt-2" id="cStats"> 
+                        <img id="weatherIcon" src="" alt="" class="mx-auto">
+                        <p id="desc" class="mb-5 text-center"></p>  
                     </div>
                 </div> 
             </div>
