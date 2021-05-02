@@ -8,7 +8,7 @@ body{
 .container{width: 60%;}
 .btn{background-color: #D7FFFE;}
 
-/*header and search box border*/
+/*header and search box border */
 .header-box {
     border-radius: 0px 0px 10px 10px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
