@@ -2,11 +2,17 @@
 body{
     /*background-image: linear-gradient(180deg, #FFFEFF 0%, #D7FFFE 100%);*/
     background-color: whitesmoke;
-    font-family: 'Mukta', sans-serif;
+    font-family: 'Barlow Condensed', sans-serif;;
 }
 
 .container{width: 60%;}
 .btn{background-color: #D7FFFE;}
+
+/*header and search box*/
+.header-box {
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
 
 /*weather image*/
 .imgHr, .imgFc{
@@ -32,7 +38,7 @@ body{
 #airQuality{font-size: 50px;}
 #uv-desc, #airQualityCond{font-size: 20px;}
 #precip, #humid{font-size:40px;}
-#temp, #tempUnit{font-size: 100px;}
+#temp, #tempUnit{font-size: 100px;font-weight: bolder;}
 #symbol{font-size: 60px;}
 #windDir, #windSpeed, #pressure{font-size: 30px;}
 
