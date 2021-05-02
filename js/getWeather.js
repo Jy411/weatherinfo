@@ -1,5 +1,3 @@
-// pressure,uv level, visibility uncomment if available
-
 //let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
 let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
