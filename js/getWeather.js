@@ -36,9 +36,12 @@ searchBtn.addEventListener("click", function(){
 	getHourly(searchUrl3);
 	getAlert(alertUrl);
 });
+
 /*
 let currentLoc = document.getElementById("currentLoc");
 currentLoc.addEventListener("click", function(){
+
+
 	const data = getObject(ipAddressUrl);
 	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
 	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
@@ -46,8 +49,8 @@ currentLoc.addEventListener("click", function(){
 	getWeather(currentUrl);
 	getForecast(forecastUrl);
 	getHourly(hourlyUrl);
-});
-*/
+});*/
+
 
 let changeUnit = document.getElementById("changeUnit");
 changeUnit.addEventListener("click", function(){
@@ -60,6 +63,7 @@ changeUnit.addEventListener("click", function(){
 		tempUnit = "M";
 		changeUnit.innerHTML = "&deg;F";
 	}
+
 	if (lastLocation === "Current") {
 		getLatLon();
 		getWeather(currentUrl);
