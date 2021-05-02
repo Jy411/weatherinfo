@@ -139,11 +139,20 @@ body{
 
     .divTableCell{
         display: table-cell;
-        padding: 15px 10px;
+        padding: 5px 3px;
     }
     
     .col-sm-6{
         padding-top: 30px;
+    }
+
+    .header-box .row .col-sm-6 {
+        padding-top:5px;
+    }
+
+    #searchBtn {
+        margin-left: 1px;
+        margin-bottom: 10px;
     }
 }
 /*--------------------------------
