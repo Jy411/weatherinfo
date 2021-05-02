@@ -268,7 +268,7 @@ function setAlert(data) {
 	document.getElementById("alertHead").innerText = data.alerts.alert[0].headline;
 	document.getElementById("alertSevere").innerText = "Severity: " + data.alerts.alert[0].severity;
 	document.getElementById("alertUrgent").innerText = "Urgency: " + data.alerts.alert[0].urgency;
-	document.getElementById("alertArea").innerText = "Area Affected: " + data.alerts.alert[0].areas;
+	document.getElementById("alertArea").innerText = "Affected Area: " + data.alerts.alert[0].areas;
 	document.getElementById("alertDesc").innerText = data.alerts.alert[0].desc;
 	document.getElementById("alertInst").innerText = data.alerts.alert[0].instruction;
 	document.getElementById("effectiveTime").innerText = "Effective Time: " + data.alerts.alert[0].effective;
