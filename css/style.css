@@ -35,6 +35,8 @@ body{
 }  
 
 .poll{color:white}
+/*base color*/
+#pollBody{background-color: green;}
 
 #weatherAlert{
     max-height: 500px;
