@@ -21,7 +21,14 @@ body{
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-  }
+}
+
+#weatherIcon {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
 
 /*Container Shadow*/
 .m-info, .fourHour, .uv, .win, .poll, 
@@ -35,7 +42,7 @@ body{
 }
 
 /*Font Size*/
-#desc{font-size: 20px;}
+#desc{font-size: 30px;}
 #airQuality{font-size: 50px;}
 #uv-desc, #airQualityCond{font-size: 20px;}
 #precip, #humid{font-size:40px;}
@@ -123,7 +130,7 @@ body{
     .container{width: 80%;}
     #temp, #tempUnit{font-size: 50px;}
     #symbol{font-size: 30px;}
-    #desc{font-size: 25px;}
+    #desc{font-size: 25px;line-break:strict;}
     #uv-desc{font-size: 19px; text-align: justify;}
     #fourHourForecast{text-align: center;}
     #uv-desc, #uvLevel{padding-top: 30px;}

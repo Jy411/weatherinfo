@@ -104,6 +104,8 @@ function setWeather(data) {
 	document.getElementById("uvLevel").innerText = Math.round(data.data[0].uv);
 	//document.getElementById("airQuality").innerText = data.data[0].aqi;
 
+	//console.log(data.data[0].weather.code);
+
 	if (data.data[0].aqi <= 50) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
 		//document.getElementById("airQuality").style.color = "green";
@@ -243,3 +245,15 @@ function getObject(url){
 	HttpRequest.send(null);
 	return JSON.parse(HttpRequest.responseText);          
 }
+/*
+function backgroundColorChange(weather_code){
+	if(weather_code >= 200 && weather_code <= 233){//thunder
+
+	} else if(weather_code >= 300 && weather_code <= 302){//drizzle
+
+	} else if (weather_code >= 500 && weather_code <= 522) {//rain
+
+	} else if(weather_code >= 700 & weather_code <= 751){ // fog/smoke/haze
+
+	}
+}*/
