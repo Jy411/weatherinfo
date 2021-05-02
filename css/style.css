@@ -34,8 +34,11 @@ body{
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }  
 
-.poll{
-    color:white
+.poll{color:white}
+
+#weatherAlert{
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 /*Font Size*/
