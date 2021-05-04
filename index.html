@@ -96,7 +96,7 @@
 
     <!--Hourly Forecast by 4hrs-->
     <div class="container p-5 mt-5 fourHour">
-        <h2 class="text-left mb-4 font-weight-bold" id="fourHourForecast">Four Hour Forecast</h2>
+        <h2 class="text-left mb-4 font-weight-bold" id="fourHourForecast">Hourly Forecast by 4hr</h2>
         <div class="row">
 
             <div class="col-sm-2">
@@ -172,12 +172,43 @@
     <!--UV Index-->
     <div class="container mt-5 p-5 uv">
         <div class="row p-5 ">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <h2 class="text-center font-weight-bold">UV Index</h2>
                 <h2 class="text-center mt-4" id="uvLevel"></h2>
                 <p class="text-center mt-2" id="uv-desc"></p>
-                <div class="progress_bar my-4">
+                <!--div class="progress_bar my-4">
                     <div class="pro-bar" style="background: linear-gradient(to right,#a9b487 35%,#d98164 68%);"></div>
+                </div-->
+            </div>
+            <div class="col-sm-6">
+                <h2 class="text-center">UV Index Table</h2>
+                <div class="divTable d-flex justify-content-center">
+                    <div class="divTableBody">
+                        <div class="divTableRow">
+                            <div class="divTableCell text-right">&nbsp;1 - 2:</div>
+                            <div class="divTableCell border-left" id="uv-low">&nbsp;Low</div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell text-right">&nbsp;3 - 5:</div>
+                            <div class="divTableCell border-left" id="uv-medium">&nbsp;Medium</div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell text-right">&nbsp;6 - 7:</div>
+                            <div class="divTableCell border-left" id="uv-high">&nbsp;High</div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell text-right">&nbsp;8 - 10:</div>
+                            <div class="divTableCell border-left" id="uv-very-high">&nbsp;Very High</div>
+                        </div>
+
+                        <div class="divTableRow">
+                            <div class="divTableCell text-right">&nbsp;11+:</div>
+                            <div class="divTableCell border-left" id="uv-extreme">&nbsp;Extreme</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

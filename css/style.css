@@ -102,6 +102,7 @@ body{
 .divTableCell, .divTableHead {
 	display: table-cell;
 	padding: 3px 10px;
+    font-size: larger;
 }
 
 .divTableBody {
@@ -112,8 +113,22 @@ body{
 --------------------------------*/
 
 /*--------------------------------
-    Style for Progress bar - Start
+    UV Index Table - start
 --------------------------------*/
+
+#uv-low{background-color: green;border-bottom:white solid 3px;}
+#uv-medium{background-color: yellow;border-bottom:white solid 3px;}
+#uv-high{background-color: orange;border-bottom:white solid 3px;}
+#uv-very-high{background-color: red;color:white;border-bottom: white solid 3px;}
+#uv-extreme{background-color: purple;color:white;}
+
+/*--------------------------------
+    UV Index Table - start
+--------------------------------*/
+
+/*--------------------------------
+    Style for Progress bar - Start
+
 .progress_bar{
     height: 20px;
     background-color:#231E26;
@@ -142,7 +157,7 @@ body{
     0% { width:0%; }
 }
 
-/*--------------------------------
+
     Style for Progress bar - End
 --------------------------------*/
 
