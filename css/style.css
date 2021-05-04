@@ -102,7 +102,7 @@ body{
 .divTableCell, .divTableHead {
 	display: table-cell;
 	padding: 3px 10px;
-    font-size: large;
+    font-size: larger;
 }
 
 .divTableBody {
@@ -128,7 +128,7 @@ body{
 
 /*--------------------------------
     Style for Progress bar - Start
---------------------------------*/
+
 .progress_bar{
     height: 20px;
     background-color:#231E26;
@@ -157,7 +157,7 @@ body{
     0% { width:0%; }
 }
 
-/*--------------------------------
+
     Style for Progress bar - End
 --------------------------------*/
 

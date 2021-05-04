@@ -161,8 +161,8 @@ function setWeather(data) {
 	} else if (data.data[0].uv > 10) {
 		document.getElementById("uv-desc").innerText = "There is an extreme risk of harm from unprotected sun exposure.";
 	}
-	let probarWidth = (data.data[0].uv / 12) * 100 + "%";
-	document.getElementsByClassName("pro-bar")[0].style.width = probarWidth;
+	//let probarWidth = (data.data[0].uv / 12) * 100 + "%";
+	//document.getElementsByClassName("pro-bar")[0].style.width = probarWidth;
 	setWeatherUnit(data);
 }
 
