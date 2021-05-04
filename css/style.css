@@ -102,6 +102,7 @@ body{
 .divTableCell, .divTableHead {
 	display: table-cell;
 	padding: 3px 10px;
+    font-size: large;
 }
 
 .divTableBody {
@@ -109,6 +110,20 @@ body{
 }
 /*--------------------------------
     Style for Table - End
+--------------------------------*/
+
+/*--------------------------------
+    UV Index Table - start
+
+
+#uv-low{background-color: green;border-bottom:white solid 3px;}
+#uv-medium{background-color: yellow;border-bottom:white solid 3px;}
+#uv-high{background-color: orange;border-bottom:white solid 3px;}
+#uv-very-high{background-color: red;border-bottom: white solid 3px;}
+#uv-extreme{background-color: purple;font-weight:bolder;}
+
+
+    UV Index Table - start
 --------------------------------*/
 
 /*--------------------------------
