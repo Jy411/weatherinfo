@@ -93,6 +93,9 @@ function getLatLon() {
 }
 getLatLon();
 
+let weatherSrc = "";
+let currentTime = "";
+
 function getWeather(url) {
 	const data = getObject(url);
 	setWeather(data);
@@ -100,9 +103,10 @@ function getWeather(url) {
 getWeather(currentUrl);
 
 function setWeather(data) {
-	let weatherSrc = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
+	weatherSrc = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
+	currentTime = formatTitleTime(convertTimezone(new Date(), data.data[0].timezone));
 	document.getElementById("city").innerText = data.data[0].city_name;
-	document.getElementById("timeDateTitle").innerText = convertTimezone(new Date(), data.data[0].timezone).toDateString() + " " + formatTitleTime(convertTimezone(new Date(), data.data[0].timezone));
+	document.getElementById("timeDateTitle").innerText = convertTimezone(new Date(), data.data[0].timezone).toDateString() + " " + currentTime;
 	document.getElementById("temp").innerText = Math.round(data.data[0].temp);
 	document.getElementById("desc").innerText = data.data[0].weather.description;
 	document.getElementById("weatherIcon").setAttribute("src", weatherSrc);
@@ -203,8 +207,12 @@ getForecast(forecastUrl);
 
 function getHourly(url) {
 	const data = getObject(url);
-	let j = 0;
-	for (let i = 4; i <= 24; i += 4) {
+	let j = 1;
+	document.getElementsByClassName("hourlyTime")[0].innerText = "Now";
+	document.getElementsByClassName("hourDayTitle")[0].innerText = currentTime;
+	document.getElementsByClassName("imgHr")[0].setAttribute("src", weatherSrc);
+	document.getElementsByClassName("tempHour")[0].innerText = document.getElementById("temp").innerText;
+	for (let i = 4; i <= 20; i += 4) {
 		let date = new Date(data.data[i].timestamp_local);
 		let day = days[date.getDay()];
 		let today = days[new Date().getDay()];
@@ -213,7 +221,7 @@ function getHourly(url) {
 		} else {
 			day = "Tomorrow"
 		}
-		document.getElementsByClassName("hourlyTime")[j].innerText = formatHour(date);;
+		document.getElementsByClassName("hourlyTime")[j].innerText = formatHour(date);
 		document.getElementsByClassName("hourDayTitle")[j].innerText = day;
 		document.getElementsByClassName("imgHr")[j].setAttribute("src", `https://www.weatherbit.io/static/img/icons/${data.data[i].weather.icon}.png`);
 		document.getElementsByClassName("tempHour")[j].innerText = Math.round(data.data[i].temp);
