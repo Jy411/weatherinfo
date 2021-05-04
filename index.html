@@ -12,7 +12,7 @@
           <!--link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet" previous font family -->
           <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="icon.png" type="image/png"> 
+    <link rel="icon" href="icon.png" type="image/png">
 
     <title>Weather</title>
 </head>
@@ -29,15 +29,15 @@
                 <h3 class=" font-weight-bold">Weather Info.</h3>
             </div>
             <div id="header-form" class="col-sm-6 text-center">
-                <label for="locationSearch">Location:</label> 
-                <input type="text" id="locationSearch" placeholder="Enter City"> 
+                <label for="locationSearch">Location:</label>
+                <input type="text" id="locationSearch" placeholder="Enter City">
                 <button class="btn mb-1" id="searchBtn">Search</button>
             </div>
-        </div>        
+        </div>
     <!--<button id="currentLoc" class="btn btn-secondary">Current Location</button>-->
     </div>
     <!--/.Search and title name-->
-    
+
 </header>
 
 <main>
@@ -47,36 +47,36 @@
     </div>-->
     <!--./Current Location-->
 
-    <!--Main Info--> 
-    <div class="container m-info"> 
-        <div class="row"> 
+    <!--Main Info-->
+    <div class="container m-info">
+        <div class="row">
 
-            <div class="col-sm-12 p-5 "> 
+            <div class="col-sm-12 p-5 ">
                 <h1 class="text-left" id="city"></h1>
-                <p id="timeDateTitle" class="text-left"></p>  
-                <div class="row"> 
+                <p id="timeDateTitle" class="text-left"></p>
+                <div class="row">
 
-                    <div class="col-sm-6 mt-2"> 
-                        <div class="d-flex justify-content-left"> 
-                            <p id="temp"></p> 
-                            <p id="symbol">&deg;</p> 
-                            <p id="tempUnit" class="tempUnit"></p> 
+                    <div class="col-sm-6 mt-2">
+                        <div class="d-flex justify-content-left">
+                            <p id="temp"></p>
+                            <p id="symbol">&deg;</p>
+                            <p id="tempUnit" class="tempUnit"></p>
                         </div>
-                        <button class="btn pr-3 text-center" id="changeUnit">&deg;F</button> 
-                    </div> 
-    
-                    <div class="col-sm-6 mt-2" id="cStats"> 
-                        <img id="weatherIcon" src="" alt="" class="mx-auto">
-                        <p id="desc" class="mb-5 text-center"></p>  
+                        <button class="btn pr-3 text-center" id="changeUnit">&deg;F</button>
                     </div>
-                </div> 
+
+                    <div class="col-sm-6 mt-2" id="cStats">
+                        <img id="weatherIcon" src="" alt="" class="mx-auto">
+                        <p id="desc" class="mb-5 text-center"></p>
+                    </div>
+                </div>
             </div>
 
-        </div> 
+        </div>
     </div>
-    <!--./Main Info--> 
+    <!--./Main Info-->
 
-    <!--.Weather Alert--> 
+    <!--.Weather Alert-->
      <div class="container mt-5 p-5 weathrAlrt" id="weatherAlert">
         <h2 class="text-center my-5 font-weight-bold">Weather Alert</h2>
         <h2 class="text-center font-weight-bold" id="alertHead"></h2>
@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-    <!--./Weather Alert--> 
+    <!--./Weather Alert-->
 
     <!--Hourly Forecast by 4hrs-->
     <div class="container p-5 mt-5 fourHour">
@@ -208,7 +208,7 @@
                 <p class="text-center mt-3" id="windDir"></p>
                 <p class="text-center" id="windSpeed"></p>
             </div>
-       
+
             <div class="col-sm-6">
                 <h2 class="text-center my-4 font-weight-bold" >Atmospheric Pressure</h2>
                 <p class="text-center mt-5" id="pressure"></p>
@@ -388,7 +388,8 @@
         crossorigin="anonymous"></script>
 <script src="js/getWeather.js"></script>
 <script async
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALDoSgrPUjM4VK_6rohBIKhXy2oXRJDYM&libraries=places&callback=initSearch">
+        src="https://maps.googleapis.com/maps/api/js?
+        types=cities&key=AIzaSyALDoSgrPUjM4VK_6rohBIKhXy2oXRJDYM&libraries=places&callback=initSearch">
 </script>
 <script src="js/searchSuggestions.js"></script>
 </body>
