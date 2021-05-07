@@ -5,7 +5,7 @@ let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca
 
 
 //openweather apikey = "132dad34815cbc5fb599965c3d03b643"
-/*call format
+/*call url
 api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
 */
 
