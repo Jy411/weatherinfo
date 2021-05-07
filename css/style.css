@@ -82,6 +82,10 @@ body{
     margin-bottom: 40px;
 }
 
+#vdImg{
+    width:100%;
+}
+
 /*--------------------------------
     Style for Table - Start
 --------------------------------*/
