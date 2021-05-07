@@ -3,6 +3,12 @@
 let apiKey = "73121a72b406470f86b3b4a67b75cd1e";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
+
+//openweather apikey = "132dad34815cbc5fb599965c3d03b643"
+/*call format
+api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+*/
+
 // API Urls
 let currentUrl = "";
 let forecastUrl = "";
@@ -113,9 +119,19 @@ function setWeather(data) {
 	document.getElementById("humid").innerText = Math.round(data.data[0].rh) + "%";
 	document.getElementById("pressure").innerText = data.data[0].pres + " mb";
 	document.getElementById("windDir").innerText = data.data[0].wind_cdir_full.charAt(0).toUpperCase();
+
+	if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "N") {
+		document.getElementById("windDirIcon").innerHTML = "test";
+	} else if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "S") {
+		document.getElementById("windDirIcon").innerHTML = '<i class="fas fa-arrow-down fa-2x"></i>';
+	} else if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "E") {
+		document.getElementById("windDirIcon").innerHTML = "s"
+	} else if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "W") {
+		document.getElementById("windDirIcon").innerHTML = "a"
+	}
+
 	document.getElementById("uvLevel").innerText = Math.round(data.data[0].uv);
 	//document.getElementById("airQuality").innerText = data.data[0].aqi;
-
 	//console.log(data.data[0].weather.code);
 
 	if (data.data[0].aqi <= 50) {
@@ -183,6 +199,7 @@ function setWeatherUnit(data) {
 		document.getElementById("visibility").innerText = data.data[0].vis + " m";
 	}
 }
+
 
 function convertTimezone(date, timezone) {
 	return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: timezone}));   
@@ -291,6 +308,8 @@ function getObject(url){
 	HttpRequest.send(null);
 	return JSON.parse(HttpRequest.responseText);          
 }
+
+
 /*
 function backgroundColorChange(weather_code){
 	if(weather_code >= 200 && weather_code <= 233){//thunder
