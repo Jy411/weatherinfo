@@ -221,16 +221,15 @@ function setWeather(data) {
 	document.getElementById("desc").innerText = data.data[0].weather.description;
 	document.getElementById("weatherIcon").setAttribute("src", weatherSrc);
 	document.getElementById("humid").innerText = Math.round(data.data[0].rh) + "%";
-	document.getElementById("pressure").innerText = data.data[0].pres + " mb";
-	document.getElementById("windDir").innerText = data.data[0].wind_cdir_full.charAt(0).toUpperCase();
+	document.getElementById("windDir").innerText = data.data[0].wind_cdir;
 
-	if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "N") {
+	if (data.data[0].wind_cdir === "N") {
 		document.getElementById("windDirIcon").innerHTML = "test";
-	} else if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "S") {
+	} else if (data.data[0].wind_cdir === "S") {
 		document.getElementById("windDirIcon").innerHTML = '<i class="fas fa-arrow-down fa-2x"></i>';
-	} else if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "E") {
+	} else if (data.data[0].wind_cdir === "E") {
 		document.getElementById("windDirIcon").innerHTML = "s"
-	} else if (data.data[0].wind_cdir_full.charAt(0).toUpperCase() === "W") {
+	} else if (data.data[0].wind_cdir === "W") {
 		document.getElementById("windDirIcon").innerHTML = "a"
 	}
 
