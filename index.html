@@ -307,18 +307,31 @@
     </div>
     <!--./wind and atmosphere-->
 
+    <div class="container mt-5 p-5 humidityDiv">
+        <div class="row">
+            
+            <div class="col-sm-12">
+                <h2 class="text-center mb-4 font-weight-bold">Humidity Percentage</h2>
+                <p class="text-center" id="humid"></p>
+            </div>
+
+        </div>
+    </div>
+
     <!--Precipitation-->
     <div class="container mt-5 p-5 precipitation">
         <div class="row">
 
-            <div class="col-sm-6">
-                <h2 class="text-center mb-4 font-weight-bold">Precipitation Rate</h2>
-                <p class="text-center" id="precip"></p>
+            <div class="col-sm-12">
+                <h2 id="precipTitle" class="text-center mb-4 font-weight-bold">Precipitation</h2>
+                <p class="text-center">Precipitation in the past 24 hours</p>
             </div>
 
-            <div class="col-sm-6">
-                <h2 class="text-center mb-4 font-weight-bold">Humidity Percentage</h2>
-                <p class="text-center" id="humid"></p>
+        </div>
+        <div class="row">
+
+            <div id="chartDisplay" class="col-sm-12">
+                <canvas id="myChart"></canvas>
             </div>
 
         </div>
@@ -487,6 +500,7 @@
 </div>
 
 <!--Optional Scripts-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -498,6 +512,7 @@
         crossorigin="anonymous"></script>
 <script src="js/cities_all.json"></script>
 <script src="js/getWeather.js"></script>
+<script src="js/chart.js"></script>
 <!-- <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALDoSgrPUjM4VK_6rohBIKhXy2oXRJDYM&libraries=places&callback=initSearch">
 </script> -->

@@ -134,6 +134,7 @@ searchBtn.addEventListener("click", function(){
 	nearbyClick = false;
 	searchInput = document.getElementById("dropBtn2").innerText;
 	searchCity();
+	redoChart();
 });
 searchBtn.disabled = true;
 
@@ -145,21 +146,6 @@ function searchCity() {
 	getHourly(searchUrl3);
 	getAlert(alertUrl);
 }
-
-/*
-let currentLoc = document.getElementById("currentLoc");
-currentLoc.addEventListener("click", function(){
-
-
-	const data = getObject(ipAddressUrl);
-	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
-	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
-
-	getWeather(currentUrl);
-	getForecast(forecastUrl);
-	getHourly(hourlyUrl);
-});*/
-
 
 let changeUnit = document.getElementById("changeUnit");
 changeUnit.addEventListener("click", function(){
@@ -185,6 +171,7 @@ changeUnit.addEventListener("click", function(){
 		getHourly(searchUrl3);
 	}
 	nearbyClick = false;
+	redoChart();
 });
 
 function getLatLon() {
@@ -264,6 +251,7 @@ function reassignUrl() {
 
 let weatherSrc = "";
 let currentTime = "";
+let unformatTime = "";
 
 function getWeather(url) {
 	const data = getObject(url);
@@ -276,6 +264,7 @@ getWeather(currentUrl);
 function setWeather(data) {
 	weatherSrc = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
 	currentTime = formatTitleTime(convertTimezone(new Date(), data.data[0].timezone));
+	unformatTime = convertTimezone(new Date(), data.data[0].timezone);
 	document.getElementById("city").innerText = data.data[0].city_name;
 	document.getElementById("timeDateTitle").innerText = convertTimezone(new Date(), data.data[0].timezone).toDateString() + " " + currentTime;
 	document.getElementById("temp").innerText = Math.round(data.data[0].temp);
@@ -351,14 +340,14 @@ function setWeatherUnit(data) {
 		for (let i = 0; i < 13; i++) {
 			document.getElementsByClassName("tempUnit")[i].innerText = "C";
 		}
-		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " mm/hr";
+		document.getElementById("precipTitle").innerText = "Precipitation (mm)";
 		document.getElementById("windSpeed").innerText = data.data[0].wind_spd.toFixed(1) + " m/s";
 		document.getElementById("visibility").innerText = data.data[0].vis + " km";
 	} else {
 		for (let i = 0; i < 13; i++) {
 			document.getElementsByClassName("tempUnit")[i].innerText = "F";
 		}
-		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " in/hr";
+		document.getElementById("precipTitle").innerText = "Precipitation (in)";
 		document.getElementById("windSpeed").innerText = data.data[0].wind_spd.toFixed(1) + " mph";
 		document.getElementById("visibility").innerText = data.data[0].vis + " m";
 	}

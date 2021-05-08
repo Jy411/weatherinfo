@@ -29,7 +29,7 @@ body{
 
 /*Container Shadow*/
 .m-info, .fourHour, .uv, .win, .poll, 
-.precipitation, .daily, .weathrAlrt{
+.precipitation, .daily, .weathrAlrt, .humidityDiv{
     border-radius: 10px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }  
