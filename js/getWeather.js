@@ -1,5 +1,6 @@
 //let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
 //let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
+//let apiKey = "ea1e4961f13b437086fdbd3b558b19b4";
 let apiKey = "73121a72b406470f86b3b4a67b75cd1e";
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
@@ -25,14 +26,26 @@ let tempUnit = "M";
 //clear search bar
 document.getElementById("locationSearch").value = "";
 
+let searchInput = "";
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", function(){
-	let searchInput = document.getElementById("locationSearch").value;
-	
-	let index = searchInput.indexOf(",");
-	searchInput = searchInput.slice(0,index);
 	lastLocation = "Search";
+	searchInput = document.getElementById("locationSearch").value;
+	let index = searchInput.indexOf(",");
+	try {
+		searchInput = searchInput.slice(0,index);
+		searchCity();
+	} catch(e) {
+		searchInput = document.getElementById("locationSearch").value;
+		let searchArr = searchInput.split(",");
+		searchInput = searchArr[searchArr.length - 1];
+		searchCity();
+		console.log(`(${e.name}) ${e.message}`);
+	}
+	
+});
 
+function searchCity() {
 	searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
 	searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
 	searchUrl3 = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${searchInput}&units=${tempUnit}&hours=25&key=${apiKey}`;
@@ -42,7 +55,7 @@ searchBtn.addEventListener("click", function(){
 	getForecast(searchUrl2);
 	getHourly(searchUrl3);
 	getAlert(alertUrl);
-});
+}
 
 /*
 let currentLoc = document.getElementById("currentLoc");
