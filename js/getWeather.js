@@ -2,8 +2,8 @@
 //let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
 //let apiKey = "ea1e4961f13b437086fdbd3b558b19b4";
 let apiKey = "73121a72b406470f86b3b4a67b75cd1e";
-let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
+let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
 //openweather apikey = "132dad34815cbc5fb599965c3d03b643"
 /*call url
@@ -20,6 +20,8 @@ let searchUrl3 = "";
 let alertUrl = "";
 
 let lastLocation = "";
+let lat = "";
+let lon = "";
 
 // default unit
 let tempUnit = "M";
@@ -46,15 +48,39 @@ searchBtn.addEventListener("click", function(){
 });
 
 function searchCity() {
-	searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
-	searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
-	searchUrl3 = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${searchInput}&units=${tempUnit}&hours=25&key=${apiKey}`;
+	reassignUrl();
 	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${searchInput}&alerts=yes`;
-
-	getWeather(searchUrl);
-	getForecast(searchUrl2);
-	getHourly(searchUrl3);
+	tryApiKey(getWeather(searchUrl));
+	tryApiKey(getForecast(searchUrl2));
+	tryApiKey(getHourly(searchUrl3));
 	getAlert(alertUrl);
+}
+
+function tryApiKey(execFunc) {
+	try {
+		reassignUrl();
+		execFunc;
+	} catch {
+		try {
+			apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+			reassignUrl();
+			execFunc;
+		} catch {
+			try {
+				apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
+				reassignUrl();
+				execFunc;
+			} catch {
+				try {
+					apiKey = "ea1e4961f13b437086fdbd3b558b19b4";
+					reassignUrl();
+					execFunc;
+				} catch(e) {
+					console.log(`(${e.name}) ${e.message}`);
+				}
+			}
+		}
+	}
 }
 
 /*
@@ -85,32 +111,39 @@ changeUnit.addEventListener("click", function(){
 	}
 
 	if (lastLocation === "Current") {
-		getLatLon();
-		getWeather(currentUrl);
-		getForecast(forecastUrl);
-		getHourly(hourlyUrl);
+		reassignUrl();
+		tryApiKey(getWeather(currentUrl));
+		tryApiKey(getForecast(forecastUrl));
+		tryApiKey(getHourly(hourlyUrl));
 	} else if (lastLocation === "Search") {
-		let searchInput = document.getElementById("locationSearch").value;
-		let index = searchInput.indexOf(",");
-		searchInput = searchInput.slice(0,index);
-		searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
-		searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
-		searchUrl3 = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${searchInput}&units=${tempUnit}&hours=25&key=${apiKey}`;
-		getWeather(searchUrl);
-		getForecast(searchUrl2);
-		getHourly(searchUrl3);
+		reassignUrl();
+		tryApiKey(getWeather(searchUrl));
+		tryApiKey(getForecast(searchUrl2));
+		tryApiKey(getHourly(searchUrl3));
 	}
 });
 
 function getLatLon() {
 	const data = getObject(ipAddressUrl);
 	lastLocation = "Current";
-	currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&key=${apiKey}`;
-	forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&days=7&key=${apiKey}`;
-	hourlyUrl = `https://api.weatherbit.io/v2.0/forecast/hourly?lat=${data.latitude}&lon=${data.longitude}&units=${tempUnit}&hours=25&key=${apiKey}`;
-	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${data.latitude},${data.longitude}&alerts=yes`;
+	lat = data.latitude;
+	lon = data.longitude;
+	reassignUrl();
+	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${lat},${lon}&alerts=yes`;
 }
 getLatLon();
+
+function reassignUrl() {
+	if (lastLocation === "Current") {
+		currentUrl = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&units=${tempUnit}&key=${apiKey}`;
+		forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&units=${tempUnit}&days=7&key=${apiKey}`;
+		hourlyUrl = `https://api.weatherbit.io/v2.0/forecast/hourly?lat=${lat}&lon=${lon}&units=${tempUnit}&hours=25&key=${apiKey}`;
+	} else if (lastLocation === "Search") {
+		searchUrl = `https://api.weatherbit.io/v2.0/current?city=${searchInput}&units=${tempUnit}&key=${apiKey}`;
+		searchUrl2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchInput}&units=${tempUnit}&days=7&key=${apiKey}`;
+		searchUrl3 = `https://api.weatherbit.io/v2.0/forecast/hourly?city=${searchInput}&units=${tempUnit}&hours=25&key=${apiKey}`;
+	}
+}
 
 let weatherSrc = "";
 let currentTime = "";
@@ -119,7 +152,7 @@ function getWeather(url) {
 	const data = getObject(url);
 	setWeather(data);
 }
-getWeather(currentUrl);
+tryApiKey(getWeather(currentUrl));
 
 function setWeather(data) {
 	weatherSrc = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
@@ -233,7 +266,7 @@ function getForecast(url) {
 		document.getElementsByClassName("tempForecast")[i].innerText = Math.round(data.data[i+1].temp);
 	}
 }
-getForecast(forecastUrl);
+tryApiKey(getForecast(forecastUrl));
 
 function getHourly(url) {
 	const data = getObject(url);
@@ -258,7 +291,7 @@ function getHourly(url) {
 		j++;
 	}
 }
-getHourly(hourlyUrl);
+tryApiKey(getHourly(hourlyUrl));
 
 function formatTitleTime(date) {
 	let hour = date.getHours();
