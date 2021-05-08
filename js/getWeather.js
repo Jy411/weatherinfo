@@ -1,7 +1,7 @@
-//let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
+let apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
 //let apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
 //let apiKey = "ea1e4961f13b437086fdbd3b558b19b4";
-let apiKey = "73121a72b406470f86b3b4a67b75cd1e";
+//let apiKey = "73121a72b406470f86b3b4a67b75cd1e";
 
 let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca304fc09b194c1241f1f229";
 
@@ -10,7 +10,6 @@ let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca
 api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
 */
 
-// API Urls
 let currentUrl = "";
 let forecastUrl = "";
 let hourlyUrl = "";
@@ -18,71 +17,133 @@ let searchUrl = "";
 let searchUrl2 = "";
 let searchUrl3 = "";
 let alertUrl = "";
-
 let nearbyClick = false;
 let lastLocation = "";
 let lat = "";
 let lon = "";
-
-// default unit
 let tempUnit = "M";
-//clear search bar
-document.getElementById("locationSearch").value = "";
+let filterCountry = [];
+let filterCity = [];
+
+function countryToArray() {
+	for (let i = 0; i < cities.length; i++) {
+		if (!(filterCountry.includes(cities[i].country_full))) {
+			filterCountry.push(cities[i].country_full);
+		}
+	}
+	filterCountry.sort();
+	filterCountry.shift();
+}
+countryToArray();
+
+function loadCountrySelect() {
+	let countrySelect = document.getElementById("countrySelect");
+	for (let i = 0; i < filterCountry.length; i++) {
+		let a = document.createElement("a");
+		a.innerText = filterCountry[i];
+		a.setAttribute("class","aCountry");
+		a.addEventListener("click", function(){
+			dropBtn.innerText = a.innerText;
+			dropBtn.style.backgroundColor = "#2E8B57";
+			dropBtn.click();
+			displayCities();
+			dropBtn2.innerText = "Select City";
+			dropBtn2.style.backgroundColor = "#808080";
+			dropBtn2.disabled = false;
+			searchBtn.disabled = true;
+		})
+		countrySelect.append(a);
+	}
+}
+loadCountrySelect();
+
+let dropBtn = document.getElementById("dropBtn");
+dropBtn.addEventListener("click", function(){
+	toggleList("countrySelect");
+});
+
+let dropBtn2 = document.getElementById("dropBtn2");
+dropBtn2.addEventListener("click", function(){
+	toggleList("citySelect");
+});
+dropBtn2.disabled = true;
+
+function toggleList(dropdown) {
+	document.getElementById(dropdown).classList.toggle("show");
+}
+
+let countryInput = document.getElementById("countryInput");
+countryInput.addEventListener("keyup", function(){
+	filterFunction("countryInput", "countrySelect", "aCountry");
+});
+
+function filterFunction(cInput, cSelect, aa) {
+	let input, filter, ul, li, a, i;
+	input = document.getElementById(cInput);
+	filter = input.value.toUpperCase();
+	div = document.getElementById(cSelect);
+	a = div.getElementsByClassName(aa);
+	for (i = 0; i < a.length; i++) {
+		txtValue = a[i].textContent || a[i].innerText;
+		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			a[i].style.display = "";
+		} else {
+			a[i].style.display = "none";
+		}
+	}
+}
+
+function displayCities() {
+	filterCity = [];
+	for (let i = 0; i < cities.length; i++) {
+		if (cities[i].country_full === dropBtn.innerText) {
+			filterCity.push(cities[i].city_name);
+		}
+	}
+	filterCity.sort();
+	let citySelect = document.getElementById("citySelect");
+	citySelect.innerHTML = "";
+	let createInput = document.createElement("input");
+	createInput.setAttribute("type", "text");
+	createInput.setAttribute("placeholder", "Search..");
+	createInput.setAttribute("id", "cityInput");
+	createInput.addEventListener("keyup", function(){
+		filterFunction("cityInput", "citySelect", "aCity");
+	});
+	citySelect.append(createInput);
+	for (let i = 0; i < filterCity.length; i++) {
+		let a = document.createElement("a");
+		a.innerText = filterCity[i];
+		a.setAttribute("class","aCity");
+		a.addEventListener("click", function(){
+			dropBtn2.innerText = a.innerText;
+			dropBtn2.style.backgroundColor = "#2E8B57";
+			dropBtn2.click();
+			searchBtn.disabled = false;
+		})
+		citySelect.append(a);
+	}
+}
+
+document.getElementById("countryInput").value = "";
 
 let searchInput = "";
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", function(){
 	lastLocation = "Search";
 	nearbyClick = false;
-	searchInput = document.getElementById("locationSearch").value;
-	let index = searchInput.indexOf(",");
-	try {
-		searchInput = searchInput.slice(0,index);
-		searchCity();
-	} catch(e) {
-		searchInput = document.getElementById("locationSearch").value;
-		let searchArr = searchInput.split(",");
-		searchInput = searchArr[searchArr.length - 1];
-		searchCity();
-		console.log(`(${e.name}) ${e.message}`);
-	}
-	
+	searchInput = document.getElementById("dropBtn2").innerText;
+	searchCity();
 });
+searchBtn.disabled = true;
 
 function searchCity() {
 	reassignUrl();
 	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${searchInput}&alerts=yes`;
-	tryApiKey(getWeather(searchUrl));
-	tryApiKey(getForecast(searchUrl2));
-	tryApiKey(getHourly(searchUrl3));
+	getWeather(searchUrl);
+	getForecast(searchUrl2);
+	getHourly(searchUrl3);
 	getAlert(alertUrl);
-}
-
-function tryApiKey(execFunc) {
-	try {
-		reassignUrl();
-		execFunc;
-	} catch {
-		try {
-			apiKey = "6d46a8768e16465aa86a2f3f7ed580ea";
-			reassignUrl();
-			execFunc;
-		} catch {
-			try {
-				apiKey = "74d34a0c1ab44e63bb4421253aa0d519";
-				reassignUrl();
-				execFunc;
-			} catch {
-				try {
-					apiKey = "ea1e4961f13b437086fdbd3b558b19b4";
-					reassignUrl();
-					execFunc;
-				} catch(e) {
-					console.log(`(${e.name}) ${e.message}`);
-				}
-			}
-		}
-	}
 }
 
 /*
@@ -114,14 +175,14 @@ changeUnit.addEventListener("click", function(){
 
 	if (lastLocation === "Current") {
 		reassignUrl();
-		tryApiKey(getWeather(currentUrl));
-		tryApiKey(getForecast(forecastUrl));
-		tryApiKey(getHourly(hourlyUrl));
+		getWeather(currentUrl);
+		getForecast(forecastUrl);
+		getHourly(hourlyUrl);
 	} else if (lastLocation === "Search") {
 		reassignUrl();
-		tryApiKey(getWeather(searchUrl));
-		tryApiKey(getForecast(searchUrl2));
-		tryApiKey(getHourly(searchUrl3));
+		getWeather(searchUrl);
+		getForecast(searchUrl2);
+		getHourly(searchUrl3);
 	}
 	nearbyClick = false;
 });
@@ -145,7 +206,7 @@ nearbyBtn.addEventListener("click", function(){
 		let previousAppend = [];
 		nearbyClick = true;
 		for (let i = 0; i < data.list.length; i++) {
-			tryApiKey(appendNearby(data, i, nearbyDiv, previousAppend));
+			appendNearby(data, i, nearbyDiv, previousAppend);
 		}
 	}
 })
@@ -210,7 +271,7 @@ function getWeather(url) {
 	lon = data.data[0].lon;
 	setWeather(data);
 }
-tryApiKey(getWeather(currentUrl));
+getWeather(currentUrl);
 
 function setWeather(data) {
 	weatherSrc = `https://www.weatherbit.io/static/img/icons/${data.data[0].weather.icon}.png`;
@@ -323,7 +384,7 @@ function getForecast(url) {
 		document.getElementsByClassName("tempForecast")[i].innerText = Math.round(data.data[i+1].temp);
 	}
 }
-tryApiKey(getForecast(forecastUrl));
+getForecast(forecastUrl);
 
 function getHourly(url) {
 	const data = getObject(url);
@@ -348,7 +409,7 @@ function getHourly(url) {
 		j++;
 	}
 }
-tryApiKey(getHourly(hourlyUrl));
+getHourly(hourlyUrl);
 
 function formatTitleTime(date) {
 	let hour = date.getHours();
