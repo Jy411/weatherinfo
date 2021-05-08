@@ -19,6 +19,7 @@ let searchUrl2 = "";
 let searchUrl3 = "";
 let alertUrl = "";
 
+let nearbyClick = false;
 let lastLocation = "";
 let lat = "";
 let lon = "";
@@ -32,6 +33,7 @@ let searchInput = "";
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", function(){
 	lastLocation = "Search";
+	nearbyClick = false;
 	searchInput = document.getElementById("locationSearch").value;
 	let index = searchInput.indexOf(",");
 	try {
@@ -121,6 +123,7 @@ changeUnit.addEventListener("click", function(){
 		tryApiKey(getForecast(searchUrl2));
 		tryApiKey(getHourly(searchUrl3));
 	}
+	nearbyClick = false;
 });
 
 function getLatLon() {
@@ -132,6 +135,59 @@ function getLatLon() {
 	alertUrl = `https://api.weatherapi.com/v1/forecast.json?key=52e3dbe7ba524c9ba6a92918213004&q=${lat},${lon}&alerts=yes`;
 }
 getLatLon();
+
+let nearbyBtn = document.getElementById("nearbyCities");
+nearbyBtn.addEventListener("click", function(){
+	if (nearbyClick === false) {
+		const data = getObject(`https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lon}&cnt=8&appid=e4780dd703dbf2f6374acd7236063a8b`);
+		let nearbyDiv = document.getElementById("nearbyDisplay");
+		nearbyDiv.innerHTML = "";
+		let previousAppend = [];
+		nearbyClick = true;
+		for (let i = 0; i < data.list.length; i++) {
+			tryApiKey(appendNearby(data, i, nearbyDiv, previousAppend));
+		}
+	}
+})
+
+function appendNearby(data, i, div, previousAppend) {
+	let bitData = getObject(`https://api.weatherbit.io/v2.0/current?lat=${data.list[i].coord.lat}&lon=${data.list[i].coord.lon}&units=${tempUnit}&key=${apiKey}`);
+	if (!(previousAppend.includes(bitData.data[0].city_name))) {
+		if (!(bitData.data[0].city_name === document.getElementById("city").innerText)) {
+			let row = document.createElement("div");
+			let leftCol = document.createElement("div");
+			let rightCol = document.createElement("div");
+			let paraCity = document.createElement("h2");
+			let paraDesc = document.createElement("p");
+			let imgIcon = document.createElement("img");
+			let paraTemp = document.createElement("h2");
+			let line = document.createElement("hr");
+			row.setAttribute("class","row");
+			leftCol.setAttribute("class","col-sm-6 text-left");
+			rightCol.setAttribute("class","col-sm-6 text-right");
+			paraCity.setAttribute("class","font-weight-bold");
+			paraCity.innerText = `${bitData.data[0].city_name}, ${bitData.data[0].country_code}`;
+			paraDesc.setAttribute("class", "text-muted");
+			paraDesc.innerText = bitData.data[0].weather.description;
+			imgIcon.style.height = "50px";
+			imgIcon.setAttribute("src",`https://www.weatherbit.io/static/img/icons/${bitData.data[0].weather.icon}.png`);
+			if (tempUnit == "M") {
+				paraTemp.innerHTML = Math.round(bitData.data[0].temp) + "&deg;C";
+			} else if (tempUnit == "I") {
+				paraTemp.innerHTML = Math.round(bitData.data[0].temp) + "&deg;F";
+			}
+			leftCol.append(paraCity);
+			leftCol.append(paraDesc);
+			rightCol.append(imgIcon);
+			rightCol.append(paraTemp);
+			row.append(leftCol);
+			row.append(rightCol);
+			div.append(row);
+			div.append(line);
+			previousAppend.push(bitData.data[0].city_name);
+		}
+	}
+}
 
 function reassignUrl() {
 	if (lastLocation === "Current") {
@@ -150,6 +206,8 @@ let currentTime = "";
 
 function getWeather(url) {
 	const data = getObject(url);
+	lat = data.data[0].lat;
+	lon = data.data[0].lon;
 	setWeather(data);
 }
 tryApiKey(getWeather(currentUrl));
@@ -233,14 +291,14 @@ function setWeatherUnit(data) {
 		for (let i = 0; i < 13; i++) {
 			document.getElementsByClassName("tempUnit")[i].innerText = "C";
 		}
-		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " mm";
+		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " mm/hr";
 		document.getElementById("windSpeed").innerText = data.data[0].wind_spd.toFixed(1) + " m/s";
 		document.getElementById("visibility").innerText = data.data[0].vis + " km";
 	} else {
 		for (let i = 0; i < 13; i++) {
 			document.getElementsByClassName("tempUnit")[i].innerText = "F";
 		}
-		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " in";
+		document.getElementById("precip").innerText = data.data[0].precip.toFixed(1) + " in/hr";
 		document.getElementById("windSpeed").innerText = data.data[0].wind_spd.toFixed(1) + " mph";
 		document.getElementById("visibility").innerText = data.data[0].vis + " m";
 	}
