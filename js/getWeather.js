@@ -285,37 +285,37 @@ function setWeather(data) {
 	document.getElementById("windDir").innerText = data.data[0].wind_cdir;
 
 	if (data.data[0].wind_cdir === "N") {
-		document.getElementById("windDirIcon").innerHTML = "&#129045;";
+		document.getElementById("windDirIcon").innerHTML = "&#129047;";
 	} else if (data.data[0].wind_cdir === "NNE") {
-		document.getElementById("windDirIcon").innerHTML = '&#11016;';
+		document.getElementById("windDirIcon").innerHTML = '&#11019;';
 	} else if (data.data[0].wind_cdir === "NE") {
-		document.getElementById("windDirIcon").innerHTML = "&#11016;"
-	} else if (data.data[0].wind_cdir === "NNW") {
-		document.getElementById("windDirIcon").innerHTML = "&#11017;"
-	} else if (data.data[0].wind_cdir === "NW") {
-		document.getElementById("windDirIcon").innerHTML = "&#11017;" // End of NORTH
-	} else if (data.data[0].wind_cdir === "E") {
-		document.getElementById("windDirIcon").innerHTML = "&#129046;"
-	} else if (data.data[0].wind_cdir === "ENE") {
-		document.getElementById("windDirIcon").innerHTML = "&#11016;"
-	} else if (data.data[0].wind_cdir === "ESE") {
-		document.getElementById("windDirIcon").innerHTML = "&#11018;" // End of East
-	} else if (data.data[0].wind_cdir === "S") {
-		document.getElementById("windDirIcon").innerHTML = "&#129047;"
-	} else if (data.data[0].wind_cdir === "SSE") {
-		document.getElementById("windDirIcon").innerHTML = "&#11018;" 
-	} else if (data.data[0].wind_cdir === "SE") {
-		document.getElementById("windDirIcon").innerHTML = "&#11018;"
-	} else if (data.data[0].wind_cdir === "SSW") {
 		document.getElementById("windDirIcon").innerHTML = "&#11019;"
-	} else if (data.data[0].wind_cdir === "SW") {
-		document.getElementById("windDirIcon").innerHTML = "&#11019;" // End of SOUTH
-	} else if (data.data[0].wind_cdir === "W") {
+	} else if (data.data[0].wind_cdir === "NNW") {
+		document.getElementById("windDirIcon").innerHTML = "&#11018;"
+	} else if (data.data[0].wind_cdir === "NW") {
+		document.getElementById("windDirIcon").innerHTML = "&#11018;" // End of NORTH
+	} else if (data.data[0].wind_cdir === "E") {
 		document.getElementById("windDirIcon").innerHTML = "&#129044;"
-	} else if (data.data[0].wind_cdir === "WNW") {
+	} else if (data.data[0].wind_cdir === "ENE") {
+		document.getElementById("windDirIcon").innerHTML = "&#11019;"
+	} else if (data.data[0].wind_cdir === "ESE") {
+		document.getElementById("windDirIcon").innerHTML = "&#11017;" // End of East
+	} else if (data.data[0].wind_cdir === "S") {
+		document.getElementById("windDirIcon").innerHTML = "&#129045;"
+	} else if (data.data[0].wind_cdir === "SSE") {
+		document.getElementById("windDirIcon").innerHTML = "&#11017;" 
+	} else if (data.data[0].wind_cdir === "SE") {
 		document.getElementById("windDirIcon").innerHTML = "&#11017;"
+	} else if (data.data[0].wind_cdir === "SSW") {
+		document.getElementById("windDirIcon").innerHTML = "&#11016;;"
+	} else if (data.data[0].wind_cdir === "SW") {
+		document.getElementById("windDirIcon").innerHTML = "&#11016;" // End of SOUTH
+	} else if (data.data[0].wind_cdir === "W") {
+		document.getElementById("windDirIcon").innerHTML = "&#129046;"
+	} else if (data.data[0].wind_cdir === "WNW") {
+		document.getElementById("windDirIcon").innerHTML = "&#11018;"
 	} else if (data.data[0].wind_cdir === "WSW") {
-		document.getElementById("windDirIcon").innerHTML = "&#11019;" // End of WEST
+		document.getElementById("windDirIcon").innerHTML = "&#11016;" // End of WEST
 	} 
 
 	document.getElementById("uvLevel").innerText = Math.round(data.data[0].uv);
