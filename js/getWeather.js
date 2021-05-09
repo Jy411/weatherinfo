@@ -465,22 +465,32 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function getAlert(url) {
-	const data = getObject(url);
-	if (data.alerts.alert.length === 0) {
-		document.getElementById("alertSevere").innerText = "";
-		document.getElementById("alertUrgent").innerText = "";
-		document.getElementById("alertArea").innerText = "";
-		document.getElementById("alertDesc").innerText = "";
-		document.getElementById("alertInst").innerText = "";
-		document.getElementById("effectiveTime").innerText = "";
-		document.getElementById("expireTime").innerText = "";
-		document.getElementById("alertHead").innerText = "No weather alert for current location";
-		document.getElementById("weatherAlert").style.backgroundColor = null;
-	}else {
-		setAlert(data);
+	try {
+		const data = getObject(url);
+		if (data.alerts.alert.length === 0) {
+			clearAlert();
+		}else {
+			setAlert(data);
+		}
+	} catch(e) {
+		clearAlert();
+		console.log(`${e.name}, ${e.message}`);
 	}
+	
 }
 getAlert(alertUrl);
+
+function clearAlert() {
+	document.getElementById("alertSevere").innerText = "";
+	document.getElementById("alertUrgent").innerText = "";
+	document.getElementById("alertArea").innerText = "";
+	document.getElementById("alertDesc").innerText = "";
+	document.getElementById("alertInst").innerText = "";
+	document.getElementById("effectiveTime").innerText = "";
+	document.getElementById("expireTime").innerText = "";
+	document.getElementById("alertHead").innerText = "No weather alert for current location";
+	document.getElementById("weatherAlert").style.backgroundColor = null;
+}
 
 function setAlert(data) {
 	document.getElementById("alertHead").innerText = data.alerts.alert[0].headline;
