@@ -356,7 +356,7 @@ function setWeather(data) {
 
 	if (data.data[0].uv <= 2) {
 		document.getElementById("uv-desc").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
-		document.getElementById("uv-adv").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
+		document.getElementById("uv-adv").innerText = "No protection needed. You can safely stay outside using minimal sun protection.";
 	} else if (data.data[0].uv > 2 && data.data[0].uv <= 5) {
 		document.getElementById("uv-desc").innerText = "There is a moderate risk of harm from unprotected sun exposure.";
 		document.getElementById("uv-adv").innerText = "Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.";
