@@ -60,11 +60,6 @@
 </header>
 
 <main>
-    <!--Current Location-->
-    <!--<div class="container">
-        <p id="userLoc" class="text-center">demolition</p>
-    </div>-->
-    <!--./Current Location-->
 
     <!--Main Info-->
     <div class="container m-info">
@@ -239,15 +234,17 @@
     <div class="container mt-5 p-5 uv">
         <div class="row">
 
-            <div class="col-sm-12">
+            <div class="col-sm-6 con">
                 <h2 class="text-center mb-4 font-weight-bold">Visibility Distance</h2>
                 <h2 class="text-center" id="visibility"></h2>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                     More Info
-                </button>
-                
+                </button>-->
+            </div>
+               
                 <!-- Modal -->
+                <!--
                 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -278,8 +275,48 @@
                         </div>
                     </div>
                     </div>
+                </div>-->
+
+                <div class="col-sm-6">
+                    <div id="carousel-vd" class="carousel slide mt-3" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <p class="text-justify">Visbility distance or sight distance is a measurement of the distance of an object or light can be clearly seen. It also depends on the transparency of the surrounding air, as such it is unchanged no matter the ambient light level or time of day.</p>
+                                <p class="text-justify">Below is the visualization:</p>
+                                <img src="img/vdh.gif" alt="" id="vdImg" class="w-100">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/vdh.gif" alt="" id="vdImg" class="w-100">
+                                <p class="text-justify">Normal visibility is where the distance of an object or light are transparent and clearly seen. Average normal visibility distance is 16km or 10 Miles.</p>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/vdh.gif" alt="" id="vdImg" class="w-100">
+                                <p class="text-justify">Impaired visbility is when there is an obstruction of visbility which causes the distance of an object or light are indistincly seen. According to the international definition impaired visbility can be cause by fog, haze, mist, freezing drizzle, heavy rain and etc.</p>
+                            </div>
+
+                            <div class="carousel-item" id="vd-slide-content-4">
+                                <ul>
+                                    <li><b>Fog:</b> less than 1km</li>
+                                    <li><b>Haze:</b> Between 2km and 5km</li>
+                                    <li><b>Mist:</b> Between 1km and 2km</li>
+                                    <li><b>Freezing Drizzle:</b> under 900 Meters</li>
+                                    <li><b>Rain:</b> less than 1km</li>
+                                </ul>
+                                <p class="text-justify">Visbility of less than 100 Meters are usually reported as zero, as in this conditions the visibility status is extremely servere to be outdoors.</p>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-vd" role="button" data-slide="prev">
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-vd" role="button" data-slide="next">
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
+
+            
 
         </div>
     </div>
