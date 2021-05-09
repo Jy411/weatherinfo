@@ -284,6 +284,7 @@ function setWeather(data) {
 	document.getElementById("humid").innerText = Math.round(data.data[0].rh) + "%";
 	document.getElementById("windDir").innerText = data.data[0].wind_cdir;
 
+	//Wind direction arrows
 	if (data.data[0].wind_cdir === "N") {
 		document.getElementById("windDirIcon").innerHTML = "&#129047;";
 	} else if (data.data[0].wind_cdir === "NNE") {
@@ -322,6 +323,7 @@ function setWeather(data) {
 	//document.getElementById("airQuality").innerText = data.data[0].aqi;
 	//console.log(data.data[0].weather.code);
 
+	//background change on aqi level
 	if (data.data[0].aqi <= 50) {
 		document.getElementById("airQuality").innerText = data.data[0].aqi;
 		//document.getElementById("airQuality").style.color = "green";
@@ -354,6 +356,7 @@ function setWeather(data) {
 		document.getElementById("airQualityCond").innerText = "Health warning of emergency conditions: everyone is more likely to be affected.";
 	}
 
+	//uv index desc and protection
 	if (data.data[0].uv <= 2) {
 		document.getElementById("uv-desc").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
 		document.getElementById("uv-adv").innerText = "No protection needed. You can safely stay outside using minimal sun protection.";
