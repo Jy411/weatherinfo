@@ -9,6 +9,7 @@ let ipAddressUrl = "https://ipgeolocation.abstractapi.com/v1/?api_key=900470f4ca
 /*call url
 api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
 */
+$('#loaderModal').modal('show');
 
 let currentUrl = "";
 let forecastUrl = "";
@@ -133,8 +134,16 @@ searchBtn.addEventListener("click", function(){
 	lastLocation = "Search";
 	nearbyClick = false;
 	searchInput = document.getElementById("dropBtn2").innerText;
+	$('#loaderModal').modal('show');
 	searchCity();
 	redoChart();
+	dropBtn.innerText = "Select Country"
+	dropBtn2.innerText = "Select City";
+	dropBtn.style.backgroundColor = "#808080";
+	dropBtn2.style.backgroundColor = "#D3D3D3";
+	dropBtn2.disabled = true;
+	searchBtn.disabled = true;
+	$('#loaderModal').modal('toggle');
 });
 searchBtn.disabled = true;
 
@@ -192,9 +201,11 @@ nearbyBtn.addEventListener("click", function(){
 		nearbyDiv.innerHTML = "";
 		let previousAppend = [];
 		nearbyClick = true;
+		$('#loaderModal').modal('show');
 		for (let i = 0; i < data.list.length; i++) {
 			appendNearby(data, i, nearbyDiv, previousAppend);
 		}
+		$('#loaderModal').modal('toggle');
 	}
 })
 
@@ -419,12 +430,11 @@ function formatHour(date) {
 	let time = hour + " " + amPm;
 	return time;
 }
-/*
-window.onerror = function() {
-	alert("Please enter a valid city name");
-	return true;
-}
-*/
+
+document.addEventListener("DOMContentLoaded", function(){
+    $('#loaderModal').modal('toggle')
+});
+
 function getAlert(url) {
 	const data = getObject(url);
 	if (data.alerts.alert.length === 0) {
