@@ -356,14 +356,19 @@ function setWeather(data) {
 
 	if (data.data[0].uv <= 2) {
 		document.getElementById("uv-desc").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
+		document.getElementById("uv-adv").innerText = "There is a low danger from the sun's UV rays for the average healthy person.";
 	} else if (data.data[0].uv > 2 && data.data[0].uv <= 5) {
 		document.getElementById("uv-desc").innerText = "There is a moderate risk of harm from unprotected sun exposure.";
+		document.getElementById("uv-adv").innerText = "Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.";
 	} else if (data.data[0].uv > 5 && data.data[0].uv <= 7) {
 		document.getElementById("uv-desc").innerText = "There is a high risk of harm from unprotected sun exposure.";
+		document.getElementById("uv-adv").innerText = "Protection needed. Seek shade during late morning through mid-afternoon. When outside, generously apply broad-spectrum SPF-15 or higher sunscreen on exposed skin, and wear protective clothing, a wide-brimmed hat, and sunglasses.";
 	} else if (data.data[0].uv > 7 && data.data[0].uv <= 10) {
-		document.getElementById("uv-desc").innerText = "There is a very risk of harm from unprotected sun exposure.";
+		document.getElementById("uv-desc").innerText = "There is a very high risk of harm from unprotected sun exposure.";
+		document.getElementById("uv-adv").innerText = "Extra protection needed. Be careful outside, especially during late morning through mid-afternoon. If your shadow is shorter than you, seek shade and wear protective clothing, a wide-brimmed hat, and sunglasses, and generously apply a minimum of  SPF-15, broad-spectrum sunscreen on exposed skin.";
 	} else if (data.data[0].uv > 10) {
 		document.getElementById("uv-desc").innerText = "There is an extreme risk of harm from unprotected sun exposure.";
+		document.getElementById("uv-adv").innerText = "Extra protection needed. Be careful outside, especially during late morning through mid-afternoon. If your shadow is shorter than you, seek shade and wear protective clothing, a wide-brimmed hat, and sunglasses, and generously apply a minimum of  SPF-15, broad-spectrum sunscreen on exposed skin.";
 	}
 	//let probarWidth = (data.data[0].uv / 12) * 100 + "%";
 	//document.getElementsByClassName("pro-bar")[0].style.width = probarWidth;
